@@ -1,158 +1,193 @@
-$(window).on('load', function(){
+$(window).on("load", function () {
+  "use strict";
 
-	"use strict";
- 
- 
-	/* ========================================================== */
-	/*   Navigation Background Color                              */
-	/* ========================================================== */
-	
-	$(window).on('scroll', function() {
-		if($(this).scrollTop() > 450) {
-			$('.navbar-fixed-top').addClass('opaque');
-		} else {
-			$('.navbar-fixed-top').removeClass('opaque');
-		}
-	});
- 
-	
-	/* ========================================================== */
-	/*   Hide Responsive Navigation On-Click                      */
-	/* ========================================================== */
-	
-	  $(".navbar-nav li a").on('click', function(event) {
-	    $(".navbar-collapse").collapse('hide');
-	  });
+  /* ========================================================== */
+  /*   Navigation Background Color                              */
+  /* ========================================================== */
 
-	
-	/* ========================================================== */
-	/*   Navigation Color                                         */
-	/* ========================================================== */
-	
-	$('#navbarCollapse').onePageNav({
-		filter: ':not(.external)'
-	});
+  $(window).on("scroll", function () {
+    if ($(this).scrollTop() > 450) {
+      $(".navbar-fixed-top").addClass("opaque");
+    } else {
+      $(".navbar-fixed-top").removeClass("opaque");
+    }
+  });
 
+  /* ========================================================== */
+  /*   Hide Responsive Navigation On-Click                      */
+  /* ========================================================== */
 
-	/* ========================================================== */
-	/*   SmoothScroll                                             */
-	/* ========================================================== */
-	
-	$(".navbar-nav li a, a.scrool").on('click', function(e) {
-		
-		var full_url = this.href;
-		var parts = full_url.split("#");
-		var trgt = parts[1];
-		var target_offset = $("#"+trgt).offset();
-		var target_top = target_offset.top;
-		
-		$('html,body').animate({scrollTop:target_top -70}, 1000);
-			return false;
-		
-	});
+  $(".navbar-nav li a").on("click", function (event) {
+    $(".navbar-collapse").collapse("hide");
+  });
 
+  /* ========================================================== */
+  /*   Navigation Color                                         */
+  /* ========================================================== */
 
-	/* ========================================================== */
-	/*   Newsletter                                               */
-	/* ========================================================== */
-	
-	$('.newsletter-form').each( function(){
-		var form = $(this);
-		//form.validate();
-		form.submit(function(e) {
-			if (!e.isDefaultPrevented()) {
-				jQuery.post(this.action,{
-					'email':$('input[name="nf_email"]').val(),
-				},function(data){
-					form.fadeOut('fast', function() {
-						$(this).siblings('p.newsletter_success_box').show();
-					});
-				});
-				e.preventDefault();
-			}
-		});
-	});		
-	
+  $("#navbarCollapse").onePageNav({
+    filter: ":not(.external)",
+  });
 
-	/* ========================================================== */
-	/*   Register                                                 */
-	/* ========================================================== */
-	
-	$('#register-form').each( function(){
-		var form = $(this);
-		//form.validate();
-		form.submit(function(e) {
-			if (!e.isDefaultPrevented()) {
-				jQuery.post(this.action,{
-					'names':$('input[name="register_names"]').val(),
-					'email':$('input[name="register_email"]').val(),
-				},function(data){
-					form.fadeOut('fast', function() {
-						$(this).siblings('p.register_success_box').show();
-					});
-				});
-				e.preventDefault();
-			}
-		});
-	})
-	
-	
-	/* ========================================================== */
-	/*   Contact                                                 */
-	/* ========================================================== */
-	
-	$('#contact-form').each( function(){
-		var form = $(this);
-		//form.validate();
-		form.submit(function(e) {
-			if (!e.isDefaultPrevented()) {
-				jQuery.post(this.action,{
-					'names':$('input[name="contact_names"]').val(),
-					'phone':$('input[name="contact_phone"]').val(),
-					'email':$('input[name="contact_email"]').val(),
-					'ticket':$('select[name="contact_ticket"]').val(),
-					'message':$('textarea[name="contact_message"]').val(),
-				},function(data){
-					form.fadeOut('fast', function() {
-						$(this).siblings('p.contact_success_box').show();
-					});
-				});
-				e.preventDefault();
-			}
-		});
-	})
+  /* ========================================================== */
+  /*   SmoothScroll                                             */
+  /* ========================================================== */
+
+  $(".navbar-nav li a, a.scrool").on("click", function (e) {
+    var full_url = this.href;
+    var parts = full_url.split("#");
+    var trgt = parts[1];
+    var target_offset = $("#" + trgt).offset();
+    var target_top = target_offset.top;
+
+    $("html,body").animate({ scrollTop: target_top - 70 }, 1000);
+    return false;
+  });
+
+  /* ========================================================== */
+  /*   Sign In/Up                                               */
+  /* ========================================================== */
+
+  $(document).ready(function () {
+    $(".login-info-box").fadeOut();
+    $(".login-show").addClass("show-log-panel");
+  });
+
+  $('.login-reg-panel input[type="radio"]').on("change", function () {
+    if ($("#log-login-show").is(":checked")) {
+      $(".register-info-box").fadeOut();
+      $(".login-info-box").fadeIn();
+
+      $(".white-panel").addClass("right-log");
+      $(".register-show").addClass("show-log-panel");
+      $(".login-show").removeClass("show-log-panel");
+    } else if ($("#log-reg-show").is(":checked")) {
+      $(".register-info-box").fadeIn();
+      $(".login-info-box").fadeOut();
+
+      $(".white-panel").removeClass("right-log");
+
+      $(".login-show").addClass("show-log-panel");
+      $(".register-show").removeClass("show-log-panel");
+    }
+  });
+
+  /* ========================================================== */
+  /*   Newsletter                                               */
+  /* ========================================================== */
+
+  $(".newsletter-form").each(function () {
+    var form = $(this);
+    //form.validate();
+    form.submit(function (e) {
+      if (!e.isDefaultPrevented()) {
+        jQuery.post(
+          this.action,
+          {
+            email: $('input[name="nf_email"]').val(),
+          },
+          function (data) {
+            form.fadeOut("fast", function () {
+              $(this).siblings("p.newsletter_success_box").show();
+            });
+          }
+        );
+        e.preventDefault();
+      }
+    });
+  });
+
+  /* ========================================================== */
+  /*   Register                                                 */
+  /* ========================================================== */
+
+  $("#register-form").each(function () {
+    var form = $(this);
+    //form.validate();
+    form.submit(function (e) {
+      if (!e.isDefaultPrevented()) {
+        jQuery.post(
+          this.action,
+          {
+            names: $('input[name="register_names"]').val(),
+            email: $('input[name="register_email"]').val(),
+          },
+          function (data) {
+            form.fadeOut("fast", function () {
+              $(this).siblings("p.register_success_box").show();
+            });
+          }
+        );
+        e.preventDefault();
+      }
+    });
+  });
+
+  /* ========================================================== */
+  /*   Contact                                                 */
+  /* ========================================================== */
+
+  $("#contact-form").each(function () {
+    var form = $(this);
+    //form.validate();
+    form.submit(function (e) {
+      if (!e.isDefaultPrevented()) {
+        jQuery.post(
+          this.action,
+          {
+            names: $('input[name="contact_names"]').val(),
+            phone: $('input[name="contact_phone"]').val(),
+            email: $('input[name="contact_email"]').val(),
+            ticket: $('select[name="contact_ticket"]').val(),
+            message: $('textarea[name="contact_message"]').val(),
+          },
+          function (data) {
+            form.fadeOut("fast", function () {
+              $(this).siblings("p.contact_success_box").show();
+            });
+          }
+        );
+        e.preventDefault();
+      }
+    });
+  });
 });
 
-	
+/* ========================================================== */
+/*   Popup-Gallery                                            */
+/* ========================================================== */
+$(".popup-gallery")
+  .find("a.popup1")
+  .magnificPopup({
+    type: "image",
+    gallery: {
+      enabled: true,
+    },
+  });
 
-	/* ========================================================== */
-	/*   Popup-Gallery                                            */
-	/* ========================================================== */
-	$('.popup-gallery').find('a.popup1').magnificPopup({
-		type: 'image',
-		gallery: {
-		  enabled:true
-		}
-	}); 
-	
-	$('.popup-gallery').find('a.popup2').magnificPopup({
-		type: 'image',
-		gallery: {
-		  enabled:true
-		}
-	}); 
- 
-	$('.popup-gallery').find('a.popup3').magnificPopup({
-		type: 'image',
-		gallery: {
-		  enabled:true
-		}
-	}); 
- 
-	$('.popup-gallery').find('a.popup4').magnificPopup({
-		type: 'iframe',
-		gallery: {
-		  enabled:false
-		}
-	});  
- 
+$(".popup-gallery")
+  .find("a.popup2")
+  .magnificPopup({
+    type: "image",
+    gallery: {
+      enabled: true,
+    },
+  });
+
+$(".popup-gallery")
+  .find("a.popup3")
+  .magnificPopup({
+    type: "image",
+    gallery: {
+      enabled: true,
+    },
+  });
+
+$(".popup-gallery")
+  .find("a.popup4")
+  .magnificPopup({
+    type: "iframe",
+    gallery: {
+      enabled: false,
+    },
+  });
