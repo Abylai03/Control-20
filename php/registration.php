@@ -16,5 +16,5 @@ $address=$_POST['address'];
     $insert="INSERT INTO `users` (`id`, `name`, `surname`, `email`, `password`,`phoneNumber`, `address`) VALUES (NULL, '".$name."', '".$surname."', '".$email."', '".$password."','".$phoneNumber."', '".$address."')";
 $r=mysqli_query($con, $insert);
              }
-}
+}}
 ?>
