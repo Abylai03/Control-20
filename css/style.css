@@ -700,6 +700,7 @@ iframe {
 	color: #e52f37!important;
 	background: transparent;
 	border: 1px solid #e52f37;
+	cursor: pointer;
 }
 
 .navbar-fixed-top.opaque .navbar-nav > li > a.discover-btn {
