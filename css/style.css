@@ -1432,7 +1432,7 @@ ul.pricing-list li.price-tag a:hover{
 	padding: 10px 0;
 }
 
-input.register-input, select.register-input{
+input.register-input, select.register-input, textarea.register-input{
 	width: 100%!important;
     height: 60px!important;
     padding-left: 8%!important;
@@ -1443,6 +1443,10 @@ input.register-input, select.register-input{
     background-color: transparent;
     font-size: 16px!important;
     border-radius: 5px 5px 5px 5px!important;
+}
+
+input.name-input{
+    background: url('../images/typewriter-keys-clipart-png-6.png') no-repeat 15px 19px;
 }
 
 input.name-input{
