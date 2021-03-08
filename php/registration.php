@@ -1,7 +1,7 @@
 <?php
 require "connect.php";
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['register'])) {
     $name = $_POST['name'];
     $surname = $_POST['surname'];
     $email = $_POST['email'];
