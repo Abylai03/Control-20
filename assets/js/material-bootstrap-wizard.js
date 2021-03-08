@@ -27,7 +27,7 @@ $(document).ready(function(){
     $('[rel="tooltip"]').tooltip();
 
     // Code for the Validator
-    var $validator = $('.wizard-card form').validate({
+    /* var $validator = $('.wizard-card form').validate({
 		  rules: {
 		    firstname: {
 		      required: true,
@@ -38,7 +38,7 @@ $(document).ready(function(){
 		      minlength: 3
 		    },
 		    email: {
-		      required: true,
+		      required: false,
 		      minlength: 3,
 		    }
         },
@@ -46,7 +46,7 @@ $(document).ready(function(){
         errorPlacement: function(error, element) {
             $(element).parent('div').addClass('has-error');
          }
-	});
+	}); */
 
     // Wizard Initialization
   	$('.wizard-card').bootstrapWizard({
