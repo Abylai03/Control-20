@@ -4,7 +4,7 @@ session_start();
 if(isset($_POST['login'])){
 $email=$_POST['email'];
 $password=$_POST['password'];
-$strSQL ="SELECT * FROM users WHERE Login='$login' AND Password='$password'";
+$strSQL ="SELECT * FROM patients WHERE patientLogin='$login' AND patientPassword='$password'";
 $result=mysqli_query($connect,$strSQL);
 $row_cnt = mysqli_num_rows($result);
 if ($row_cnt>0){
@@ -17,8 +17,8 @@ if ($row_cnt>0){
         "patientPhoneNumber" => $strSQL['patientPhoneNumber'],
         "patientAddress" => $strSQL['patientAddress']
     ];
-    header('Location:patientProfile.php');
-} ELSE {
+    header('Location: patientProfile.php');
+}else {
 	echo "Email or password is incorrect";
 }
 }
