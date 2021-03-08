@@ -78,15 +78,15 @@
                   </div>
                   <div class="wizard-navigation">
                     <ul>
-                      <li><a href="#register" data-toggle="tab">Register as patient</a></li>
+                      <li><a href="#register" data-toggle="tab">Register as a patient</a></li>
                       <li>
                         <a href="#patient" data-toggle="tab"
-                          >Log in as patient</a
+                          >Log in as a patient</a
                         >
                       </li>
                       <li>
                         <a href="#doctor" data-toggle="tab"
-                          >Log in as doctor</a
+                          >Log in as a doctor</a
                         >
                       </li>
                     </ul>
@@ -190,8 +190,53 @@
                 </form>
                     </div>
                     <div class="tab-pane" id="patient">
-                <form action="" method="">
-                        <h4 class="info-text">
+                <form action="patientLogin.php" method="POST">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <h4 class="info-text">
+                        
+                      </h4>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="material-icons">email</i>
+                        </span>
+                        <div class="form-group label-floating">
+                          <label class="control-label">Your Email</label>
+                          <input
+                            name="email"
+                            type="text"
+                            class="form-control"
+                            aria-required="false" required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="material-icons">lock_outline</i>
+                        </span>
+                        <div class="form-group label-floating">
+                          <label class="control-label">Your Password</label>
+                          <input
+                            name="password"
+                            type="password"
+                            class="form-control"
+                            aria-required="false" required
+                          />
+                        </div>
+                      </div>
+                    </div>
+ 
+                  </div>
+                  <input
+                              type="submit"
+                              class="btn btn-fill btn-danger btn-wd"
+                              name="login"
+                              value="Login"
+                            />
+                        <!-- <h4 class="info-text">
                         What type of room would you want?
                       </h4>
                       <div class="row">
@@ -239,7 +284,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                 </form>
                     </div>
                     <div class="tab-pane" id="doctor">
