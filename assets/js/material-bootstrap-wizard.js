@@ -27,7 +27,7 @@ $(document).ready(function(){
     $('[rel="tooltip"]').tooltip();
 
     // Code for the Validator
-    /* var $validator = $('.wizard-card form').validate({
+    var $validator = $('.wizard-card form').validate({
 		  rules: {
 		    firstname: {
 		      required: true,
@@ -124,7 +124,7 @@ $(document).ready(function(){
 
             refreshAnimation($wizard, index);
         }
-  	}); */
+  	});
 
 
     // Prepare the preview for profile picture
