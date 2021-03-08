@@ -38,7 +38,7 @@ $(document).ready(function(){
 		      minlength: 3
 		    },
 		    email: {
-		      required: false,
+		      required: true,
 		      minlength: 3,
 		    }
         },
