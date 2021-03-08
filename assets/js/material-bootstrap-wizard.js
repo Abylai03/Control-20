@@ -46,7 +46,7 @@ $(document).ready(function(){
         errorPlacement: function(error, element) {
             $(element).parent('div').addClass('has-error');
          }
-	}); */
+	});
 
     // Wizard Initialization
   	$('.wizard-card').bootstrapWizard({
@@ -124,7 +124,7 @@ $(document).ready(function(){
 
             refreshAnimation($wizard, index);
         }
-  	});
+  	}); */
 
 
     // Prepare the preview for profile picture
