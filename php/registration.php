@@ -12,6 +12,7 @@ if (isset($_POST['register'])) {
         echo '<script type="text/javascript">';
         echo 'alert("You missed some data")';  //not showing an alert box.
         echo '</script>';
+        header('Location: ../route.html');
     } else {
         $select = 'SELECT * FROM `patients` WHERE `email`= "' . $email . '" ';
         $result = mysqli_query($connect, $select);
