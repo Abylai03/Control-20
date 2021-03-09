@@ -19,7 +19,7 @@ if ($row_cnt>0){
         "patientPhoneNumber" => $patient['patientPhoneNumber'],
         "patientAddress" => $patient['patientAddress']
     ];
-    header('Location: patientProfile.php');
+    header('Location: doctorProfile.php');
 }else {
 	echo "Email or password is incorrect";
 }
