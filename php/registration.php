@@ -8,13 +8,13 @@ if (isset($_POST['register'])) {
     $password = $_POST['password'];
     $phoneNumber = $_POST['phoneNumber'];
     $address = $_POST['address'];
-    if (empty($name) or empty($surname) or empty($email) or empty($password) or empty($phoneNumber) or empty($address)) {
+    /* if (empty($name) or empty($surname) or empty($email) or empty($password) or empty($phoneNumber) or empty($address)) {
         echo '<script type="text/javascript">';
         echo 'alert("You missed some data")';  //not showing an alert box.
         echo '</script>';
         header('Location: ../route.html');
-    } else {
-        $select = 'SELECT * FROM `patients` WHERE `email`= "' . $email . '" ';
+    } else { */
+        $select = "SELECT * FROM `patients` WHERE `email`= '$email'";
         $result = mysqli_query($connect, $select);
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
@@ -43,5 +43,5 @@ if (isset($_POST['register'])) {
                 }
             }
         }
-    }
+    /* } */
 }
