@@ -39,7 +39,7 @@ if (isset($_POST['register'])) {
                         "patientPhoneNumber" => $user['patientPhoneNumber'],
                         "patientAddress" => $patient['patientAddress']
                     ];
-                    header('Location: patient_scripts/profileProfile.php');
+                    header('Location: patient_scripts/patientProfile.php');
                 }else{
                     echo 'Registration Error!';
                 }
