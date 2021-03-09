@@ -197,13 +197,14 @@
                     </div>
                     <div class="tab-pane" id="patient">
                 <form action="php/patient_scripts/patientLogin.php" method="POST">
-                  <div class="row">
+                  <div class="row" 
+                  style="display: flex; flex-direction: column; align-items: center;">
                     <div class="col-sm-12">
                       <h4 class="info-text">
-                        
+                        Log in to your profile page!
                       </h4>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 top-cover">
                       <div class="input-group">
                         <span class="input-group-addon">
                           <i class="material-icons">email</i>
@@ -234,14 +235,13 @@
                         </div>
                       </div>
                     </div>
- 
-                  </div>
-                  <input
+                    <input
                     type="submit"
                     class="btn btn-fill btn-danger btn-wd"
                     name="login"
                     value="Login"
-                  />
+                    />
+                  </div>
                         <!-- <h4 class="info-text">
                         What type of room would you want?
                       </h4>
@@ -294,10 +294,47 @@
                 </form>
                     </div>
                     <div class="tab-pane" id="doctor">
-                    <form action="" method="">
-                        <div class="row">
-                        <h4 class="info-text">Drop us a small description.</h4>
-                        <div class="col-sm-6 col-sm-offset-1">
+                    <form action="php/doctor_scripts/doctorLogin.php" method="">
+                        <div class="row" style="display: flex; flex-direction: column; align-items: center;"> 
+                        <h4 class="info-text">Log in to your profile page, doctor!</h4>
+                        <div class="col-sm-6 top-cover">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <i class="material-icons">email</i>
+                            </span>
+                            <div class="form-group label-floating">
+                              <label class="control-label">Your Email</label>
+                              <input
+                                name="email"
+                                type="text"
+                                class="form-control"
+                                aria-required="false" required
+                              />
+                            </div>
+                          </div>
+    
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <i class="material-icons">lock_outline</i>
+                            </span>
+                            <div class="form-group label-floating">
+                              <label class="control-label">Your Password</label>
+                              <input
+                                name="password"
+                                type="password"
+                                class="form-control"
+                                aria-required="false" required
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                        type="submit"
+                        class="btn btn-fill btn-danger btn-wd"
+                        name="login"
+                        value="Login"
+                        />
+                        <!-- <div class="col-sm-6 col-sm-offset-1">
                           <div class="form-group">
                             <label>Room description</label>
                             <textarea
@@ -317,7 +354,7 @@
                               of magic shield around it."
                             </p>
                           </div>
-                        </div>
+                        </div> -->
                       </div>
                     </form>
                     </div>
