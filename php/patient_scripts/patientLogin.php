@@ -8,7 +8,7 @@ $strSQL ="SELECT * FROM patients WHERE patientEmail='$email' AND patientPassword
 $result=mysqli_query($connect,$strSQL);
 $row_cnt = mysqli_num_rows($result);
 if ($row_cnt>0){
-    $patient = mysqli_fetch_assoc($res);
+    $patient = mysqli_fetch_assoc($result);
 
     $_SESSION['patient'] = [
         "id" => $patient['id'],
