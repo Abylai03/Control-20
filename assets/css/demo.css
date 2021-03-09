@@ -1,3 +1,16 @@
+.navbar-brand{
+	font-family: 'Roboto Slab', serif;
+	font-size: 28px;
+	font-weight: 600;
+	color: #f44336;
+    filter: brightness(100%);
+    z-index: 1;
+}
+.navbar-brand:hover{
+    cursor: pointer;
+    color: #f44336 !important;
+}
+
 .logo-container{
     left: 50px;
     position: absolute;
