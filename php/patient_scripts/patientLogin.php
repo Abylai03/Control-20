@@ -4,7 +4,7 @@ session_start();
 if(isset($_POST['login'])){
 $email=$_POST['email'];
 $password=$_POST['password'];
-$strSQL ="SELECT * FROM patients WHERE patientLogin='$login' AND patientPassword='$password'";
+$strSQL ="SELECT * FROM patients WHERE patientEmail='$email' AND patientPassword='$password'";
 $result=mysqli_query($connect,$strSQL);
 $row_cnt = mysqli_num_rows($result);
 if ($row_cnt>0){
