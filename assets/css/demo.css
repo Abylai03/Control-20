@@ -2,7 +2,7 @@
 	font-family: 'Roboto Slab', serif;
 	font-size: 28px;
 	font-weight: 600;
-	color: #f44336;
+	color: #f44336 !important;
     filter: brightness(100%);
     z-index: 1;
 }
