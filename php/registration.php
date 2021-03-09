@@ -14,7 +14,7 @@ if (isset($_POST['register'])) {
         echo '</script>';
         header('Location: ../route.html');
     } else { */
-        $select = "SELECT * FROM `patients` WHERE `email`= '$email'";
+        $select = "SELECT * FROM `patients` WHERE `patientEmail`= '$email'";
         $result = mysqli_query($connect, $select);
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
@@ -23,7 +23,7 @@ if (isset($_POST['register'])) {
                 $insert = "INSERT INTO `patients` (`id`, `patientName`, `patientSurname`, `patientEmail`, `patientPassword`,`patientPhoneNumber`, `patientAddress`) 
                 VALUES (NULL, '$name', '$surname ', '$email', '$password','$phoneNumber', '$address')";
 
-                $r = mysqli_query($con, $insert);
+                $r = mysqli_query($connect, $insert);
                 if ($r) {
                     $sql = "SELECT * FROM `patients` WHERE `patientEmail`='$email'";
                     $res = mysqli_query($connect, $sql);
@@ -40,6 +40,8 @@ if (isset($_POST['register'])) {
                         "patientAddress" => $patient['patientAddress']
                     ];
                     header('Location: patient_scripts/profileProfile.php');
+                }else{
+                    echo 'Registration Error!';
                 }
             }
         }
