@@ -1,13 +1,13 @@
 .navbar-brand{
-	font-family: 'Roboto Slab', serif;
-	font-size: 28px;
-	font-weight: 600;
+	font-family: 'Roboto Slab', serif !important;
+	font-size: 28px !important;
+	font-weight: 600 !important;
 	color: #f44336 !important;
-    filter: brightness(100%);
-    z-index: 1;
+    filter: brightness(100%) !important;
+    z-index: 1 !important;
 }
 .navbar-brand:hover{
-    cursor: pointer;
+    cursor: pointer !important;
     color: #f44336 !important;
 }
 
