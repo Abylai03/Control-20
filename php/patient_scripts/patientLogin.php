@@ -8,14 +8,16 @@ $strSQL ="SELECT * FROM patients WHERE patientEmail='$email' AND patientPassword
 $result=mysqli_query($connect,$strSQL);
 $row_cnt = mysqli_num_rows($result);
 if ($row_cnt>0){
+    $patient = mysqli_fetch_assoc($res);
+
     $_SESSION['patient'] = [
-        "id" => $strSQL['id'],
-        "patientEmail" => $strSQL['patientEmail'],
-        "patientName" => $strSQL['patientName'],
-        "patientSurname" => $strSQL['patientSurname'],
-        "patientPassword" => $strSQL['patientPassword'],
-        "patientPhoneNumber" => $strSQL['patientPhoneNumber'],
-        "patientAddress" => $strSQL['patientAddress']
+        "id" => $patient['id'],
+        "patientEmail" => $patient['patientEmail'],
+        "patientName" => $patient['patientName'],
+        "patientSurname" => $patient['patientSurname'],
+        "patientPassword" => $patient['patientPassword'],
+        "patientPhoneNumber" => $patient['patientPhoneNumber'],
+        "patientAddress" => $patient['patientAddress']
     ];
     header('Location: patientProfile.php');
 }else {

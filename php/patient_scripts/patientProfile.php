@@ -183,7 +183,7 @@ if (!$_SESSION['patient']) {
                                     Помощь </a>
                             </li>
                             <li>
-                                <a href="logout.php">
+                                <a href="patientLogout.php">
                                     <i class="glyphicon glyphicon-log-out"></i>
                                     Выход </a>
                             </li>

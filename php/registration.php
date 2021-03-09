@@ -31,13 +31,13 @@ if (isset($_POST['register'])) {
                     $patient = mysqli_fetch_assoc($res);
 
                     $_SESSION['patient'] = [
-                        "id" => $user['id'],
-                        "patientEmail" => $user['patientEmail'],
-                        "patientName" => $user['patientName'],
-                        "patientSurname" => $user['patientSurname'],
-                        "patientPassword" => $user['patientPassword'],
+                        "id" => $patient['id'],
+                        "patientEmail" => $patient['patientEmail'],
+                        "patientName" => $patient['patientName'],
+                        "patientSurname" => $patient['patientSurname'],
+                        "patientPassword" => $patient['patientPassword'],
                         "patientPhoneNumber" => $user['patientPhoneNumber'],
-                        "patientAddress" => $user['patientAddress']
+                        "patientAddress" => $patient['patientAddress']
                     ];
                     header('Location: patient_scripts/profileProfile.php');
                 }
