@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!$_SESSION['patient']) {
-    header('Location: route.html');
+    header('Location: ../../route.html');
 }
 ?>
 
