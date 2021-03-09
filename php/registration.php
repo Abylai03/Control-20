@@ -22,6 +22,8 @@ if (isset($_POST['register'])) {
             } else {
                 $insert = "INSERT INTO `patients` (`id`, `patientName`, `patientSurname`, `patientEmail`, `patientPassword`,`patientPhoneNumber`, `patientAddress`) 
                 VALUES (NULL, '$name', '$surname ', '$email', '$password','$phoneNumber', '$address')";
+                
+                echo $insert;
 
                 $r = mysqli_query($connect, $insert);
                 if ($r) {
