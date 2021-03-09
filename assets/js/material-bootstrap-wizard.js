@@ -56,10 +56,10 @@ $(document).ready(function(){
 
         onNext: function(tab, navigation, index) {
         	var $valid = $('.wizard-card form').valid();
-        	if(!$valid) {
+        	/* if(!$valid) {
         		$validator.focusInvalid();
         		return false;
-        	}
+        	} */
         },
 
         onInit : function(tab, navigation, index){
@@ -79,11 +79,11 @@ $(document).ready(function(){
         onTabClick : function(tab, navigation, index){
             var $valid = $('.wizard-card form').valid();
 
-            if(!$valid){
+            /* if(!$valid){
                 return false;
             } else{
                 return true;
-            }
+            } */
         },
 
         onTabShow: function(tab, navigation, index) {
