@@ -9,11 +9,11 @@ if (!$_SESSION['doctor']) {
 <html lang="en">
 
 <head>
-    <meta charset="utf8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профиль</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <style>
@@ -192,11 +192,11 @@ if (!$_SESSION['doctor']) {
                     <!-- END MENU -->
                 </div>
             </div>
-			<script>
-			  function go(loc) {
-				document.getElementById('frame').src = loc;
-			  }
-			</script>
+            <script>
+                function go(loc) {
+                    document.getElementById('frame').src = loc;
+                }
+            </script>
             <iframe class="col-md-9" src="patientsList.php" height="1200" id="frame" style="padding:0;">
                 <div class="profile-content">
                     Some user related content goes here...
