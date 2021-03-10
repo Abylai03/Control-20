@@ -178,7 +178,7 @@ if (!$_SESSION['doctor']) {
                                     Пациенты </a>
                             </li>
                             <li>
-                                <a href="#" onclick="go('doctorFeedbackform.php')">
+                                <a href="#" onclick="go('doctorFeedback.php')">
                                     <i class="glyphicon glyphicon-flag"></i>
                                     Помощь </a>
                             </li>
