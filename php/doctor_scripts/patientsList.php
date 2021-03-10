@@ -9,7 +9,7 @@ $query = mysqli_query($connect, $sql);
 $count = mysqli_num_rows($query);
 if ($count != 0) {
 ?>
-    <table>
+    <table style="width: 100%">
         <tr>
             <th>ID</th>
             <th>Name</th>
