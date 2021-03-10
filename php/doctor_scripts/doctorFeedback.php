@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 
 <body>
     <form method="POST">
-        <div class="form-group">
+        <div class="form-group" style="margin: auto">
             <label for="message">Введите ваше сообщение</label>
             <textarea class="form-control" rows="3" name="feedback" required></textarea>
         </div>
