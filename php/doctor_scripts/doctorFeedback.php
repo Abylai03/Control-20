@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $query = mysqli_query($connect, $sql);
 
     if ($query) {
-        echo "Мы получили сообщение, в скором времени вам ответим!";
+        echo "<h1>Мы получили сообщение, в скором времени вам ответим!</h1>";
     } else {
         echo "Error!";
     }
@@ -29,8 +29,8 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <form method="POST">
-        <div class="form-group" style="margin: auto">
+    <form method="POST" style="margin: 2%">
+        <div class="form-group">
             <label for="message">Введите ваше сообщение</label>
             <textarea class="form-control" rows="3" name="feedback" required></textarea>
         </div>
