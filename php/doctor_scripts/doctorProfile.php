@@ -163,7 +163,7 @@ if (!$_SESSION['doctor']) {
                     <div class="profile-usermenu">
                         <ul class="nav">
                             <li class="active">
-                                <a href="#" onclick="go('patients.php')">
+                                <a href="#" onclick="go('patientsList.php')">
                                     <i class="glyphicon glyphicon-home"></i>
                                     Главная </a>
                             </li>
@@ -173,12 +173,12 @@ if (!$_SESSION['doctor']) {
                                     Настройки аккаунта </a>
                             </li>
                             <li>
-                                <a href="#" onclick="go('patients.php')">
+                                <a href="#" onclick="go('patientsList.php')">
                                     <i class="glyphicon glyphicon-signal"></i>
                                     Пациенты </a>
                             </li>
                             <li>
-                                <a href="#" onclick="go('feedbackform.php')">
+                                <a href="#" onclick="go('doctorFeedbackform.php')">
                                     <i class="glyphicon glyphicon-flag"></i>
                                     Помощь </a>
                             </li>
@@ -197,7 +197,7 @@ if (!$_SESSION['doctor']) {
 				document.getElementById('frame').src = loc;
 			  }
 			</script>
-            <iframe class="col-md-9" src="patients.php" height="1200" id="frame" style="padding:0;">
+            <iframe class="col-md-9" src="patientsList.php" height="1200" id="frame" style="padding:0;">
                 <div class="profile-content">
                     Some user related content goes here...
                 </div>
