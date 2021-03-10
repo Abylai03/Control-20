@@ -32,7 +32,7 @@ if ($count != 0) {
                 <td align="center"><?php echo $result["patientPhoneNumber"]; ?></td>
                 <td align="center"><?php echo $result["patientAddress"]; ?></td>
                 <td align="center"><?php echo $result["patientStatus"]; ?></td>
-                <td align="center"><a href="esp-graph.php?apiKey=<?php echo $result["apiKey"]; ?>"><?php echo $result["apiKey"]; ?></a></td>
+                <td align="center"><a href="patientGraph.php?apiKey=<?php echo $result["apiKey"]; ?>"><?php echo $result["apiKey"]; ?></a></td>
             </tr>
     <?php
         }
