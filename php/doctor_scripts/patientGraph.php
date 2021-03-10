@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
 </style>
 
 <body>
-  <a href="patients.php"><button type="button" class="btn btn-primary" style="margin: 2% 0 0 2%">Назад</button></a>
+  <a href="patientsList.php"><button type="button" class="btn btn-primary" style="margin: 2% 0 0 2%">Назад</button></a>
   <h2>ESP COVID-19 Monitoring Center (Control-20)</h2>
   <form class="form" method="POST">
     <p>Начальная дата: <input type="text" id="datepicker" name="datepicker" required></p>
