@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $query = mysqli_query($connect, $sql);
 
     if ($query) {
-        echo "<h1>Мы получили сообщение, в скором времени вам ответим!</h1>";
+        echo "<h3 style='margin: 2%'>Мы получили сообщение, в скором времени вам ответим!</h3>";
     } else {
         echo "Error!";
     }
