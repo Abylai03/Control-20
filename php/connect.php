@@ -1,12 +1,12 @@
 <?php
-$servername = "localhost:3306";
+$servername = "localhost";
 
 // REPLACE with your Database name
-$dbname = "ESP32";
+$dbname = "esp";
 // REPLACE with Database user
-$username = "Abylay03";
+$username = "root";
 // REPLACE with Database user password
-$password = "jn8Xh8?4"; 
+$password = ""; 
 
 //$servername = "localhost";
 //$username = "root";
