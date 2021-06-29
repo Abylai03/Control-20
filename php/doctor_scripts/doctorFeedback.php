@@ -56,14 +56,14 @@ if (!$_SESSION['doctor']) {
 								<p>Dashboard</p>
 							</a>
 						</li>
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a href="tables.php">
 								<i class="la la-th"></i>
 								<p>Tables</p>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="tables.html">
+						<li class="nav-item active">
+							<a href="doctorFeedback.php">
 								<i class="la la-question-circle"></i>
 								<p>Support</p>
 							</a>
