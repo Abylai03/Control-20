@@ -1,16 +1,23 @@
 <?php
-$servername = "localhost";
+$servername = "localhost:3306";
 // REPLACE with your Database name
-$dbname = "esp32";
+$dbname = "ESP32";
 // REPLACE with Database user
-$username = "root";
+$username = "Abylay03";
 // REPLACE with Database user password
-$password = ""; 
+$password = "jn8Xh8?4"; 
 
-//$servername = "localhost";
-//$username = "root";
-//$password = "";
-//$dbname = "ESP32";
+/* 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ESP32";
+
+$servername = "localhost:3306";
+$dbname = "ESP32";
+$username = "Abylay03";
+$password = "jn8Xh8?4";  
+*/
 
 // Create connection
 $connect = new mysqli($servername, $username, $password, $dbname);
