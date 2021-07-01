@@ -26,10 +26,10 @@ if (!$_SESSION['doctor']) {
 
 		function drawChart() {
 
-			var data = google.visualization.arrayToDataTable([
+			/* var data = google.visualization.arrayToDataTable([
 				['students', 'contribution'],
 				<?php
-				$sql = "SELECT * FROM contribution";
+				$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId'";
 				$fire = mysqli_query($con, $sql);
 				while ($result = mysqli_fetch_assoc($fire)) {
 					echo "['" . $result['student'] . "'," . $result['contribution'] . "],";
@@ -38,8 +38,22 @@ if (!$_SESSION['doctor']) {
 				?>
 			]);
 
+			$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId'";
+													$query = mysqli_query($connect, $sql);
+													$count = mysqli_num_rows($query); */
+
+			var data = google.visualization.arrayToDataTable([
+				['Task', 'Hours per Day'],
+				['Work', 11],
+				['Eat', 2],
+				['Commute', 2],
+				['Watch TV', 2],
+				['Sleep', 7]
+			]);
+
+
 			var options = {
-				title: 'Students and their contribution',
+				title: 'Статистика пациентов',
 				colors: ['#1D62F0', '#59D05D', '#FBAD4C', '#FF646D']
 			};
 
