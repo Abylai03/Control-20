@@ -37,6 +37,10 @@ if (!$_SESSION['doctor']) {
 			$sql3 = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId' AND `patientStatus`='Bad'";
 			$query3 = mysqli_query($connect, $sq3);
 			$bad = mysqli_num_rows($query3);
+			
+			echo $good,
+			$normal,
+			$bad;
 			?>
 			
 
