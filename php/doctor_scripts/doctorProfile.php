@@ -41,6 +41,7 @@ if (!$_SESSION['doctor']) {
 			
 
 			var data = google.visualization.arrayToDataTable([
+				['', 0],
 				['Отлично', <?php echo $good;?>],
 				['Нормально', <?php echo $normal;?>],
 				['Плохо', <?php echo $bad;?>]
@@ -49,7 +50,7 @@ if (!$_SESSION['doctor']) {
 
 			var options = {
 				title: 'Статистика пациентов',
-				colors: ['#59D05D', '#FBAD4C', '#FF646D']
+				colors: ['#FFFFFF','#59D05D', '#FBAD4C', '#FF646D']
 			};
 
 			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
