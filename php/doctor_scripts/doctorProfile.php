@@ -45,6 +45,7 @@ if (!$_SESSION['doctor']) {
 			
 
 			var data = google.visualization.arrayToDataTable([
+				['Статистика', 'пациентов'],
 				['', 0],
 				['Отлично', <?php echo $good;?>],
 				['Нормально', <?php echo $normal;?>],
