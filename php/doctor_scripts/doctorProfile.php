@@ -45,10 +45,9 @@ if (!$_SESSION['doctor']) {
 			var data = google.visualization.arrayToDataTable([
 				['Task', 'Hours per Day'],
 				['Work', 11],
-				['Eat', 2],
-				['Commute', 2],
-				['Watch TV', 2],
-				['Sleep', 7]
+				['Eat', 7],
+				['Commute', 4],
+				['Watch TV', 1]
 			]);
 
 
