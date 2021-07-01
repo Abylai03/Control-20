@@ -1,12 +1,13 @@
 <?php
 session_start();
 if (!$_SESSION['doctor']) {
-    header('Location: ../../route.html');
+	header('Location: ../../route.html');
 }
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>Control-20 Main Panel</title>
@@ -15,7 +16,40 @@ if (!$_SESSION['doctor']) {
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 	<link rel="stylesheet" href="assets/css/ready.css">
 	<link rel="stylesheet" href="assets/css/demo.css">
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load('current', {
+			'packages': ['corechart']
+		});
+		google.charts.setOnLoadCallback(drawChart);
+
+		function drawChart() {
+
+			var data = google.visualization.arrayToDataTable([
+				['students', 'contribution'],
+				<?php
+				$sql = "SELECT * FROM contribution";
+				$fire = mysqli_query($con, $sql);
+				while ($result = mysqli_fetch_assoc($fire)) {
+					echo "['" . $result['student'] . "'," . $result['contribution'] . "],";
+				}
+
+				?>
+			]);
+
+			var options = {
+				title: 'Students and their contribution',
+				colors: ['#1D62F0', '#59D05D', '#FBAD4C', '#FF646D']
+			};
+
+			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+			chart.draw(data, options);
+		}
+	</script>
 </head>
+
 <body>
 	<div class="wrapper">
 		<div class="main-header">
@@ -30,7 +64,7 @@ if (!$_SESSION['doctor']) {
 			</div>
 			<nav class="navbar navbar-header navbar-expand-lg">
 				<div class="container-fluid">
-					
+
 					<!-- <form class="navbar-left navbar-form nav-search mr-md-3" action="">
 						<div class="input-group">
 							<input type="text" placeholder="Search ..." class="form-control">
@@ -129,182 +163,182 @@ if (!$_SESSION['doctor']) {
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Logout</a>
 								</ul> -->
-								<!-- /.dropdown-user -->
-							<!-- </li>
+					<!-- /.dropdown-user -->
+					<!-- </li>
 						</ul> -->
-					</div>
-				</nav>
-			</div>
-			<div class="sidebar">
-				<div class="scrollbar-inner sidebar-wrapper">
-					<div class="user">
-						<div class="photo">
-							<img src="assets/img/doctor.jpg">
-						</div>
-						<div class="info">
-							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-								<span>
-								<?= $_SESSION['doctor']['doctorName'] ?> <?= $_SESSION['doctor']['doctorSurname'] ?>
-									<span class="user-level">Doctor</span>
-								</span>
-							</a>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<ul class="nav">
-						<li class="nav-item active">
-							<a href="doctorProfile.php">
-								<i class="la la-connectdevelop"></i>
-								<p>Dashboard</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="tables.php">
-								<i class="la la-th"></i>
-								<p>Tables</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="doctorFeedback.php">
-								<i class="la la-question-circle"></i>
-								<p>Support</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="doctorLogout.php">
-								<i class="la la-sign-out"></i>
-								<p>Logout</p>
-							</a>
-						</li>
-					</ul>
 				</div>
+			</nav>
+		</div>
+		<div class="sidebar">
+			<div class="scrollbar-inner sidebar-wrapper">
+				<div class="user">
+					<div class="photo">
+						<img src="assets/img/doctor.jpg">
+					</div>
+					<div class="info">
+						<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+							<span>
+								<?= $_SESSION['doctor']['doctorName'] ?> <?= $_SESSION['doctor']['doctorSurname'] ?>
+								<span class="user-level">Doctor</span>
+							</span>
+						</a>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<ul class="nav">
+					<li class="nav-item active">
+						<a href="doctorProfile.php">
+							<i class="la la-connectdevelop"></i>
+							<p>Dashboard</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="tables.php">
+							<i class="la la-th"></i>
+							<p>Tables</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="doctorFeedback.php">
+							<i class="la la-question-circle"></i>
+							<p>Support</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="doctorLogout.php">
+							<i class="la la-sign-out"></i>
+							<p>Logout</p>
+						</a>
+					</li>
+				</ul>
 			</div>
-			<div class="main-panel">
-				<div class="content">
-					<div class="container-fluid">
-						<h4 class="page-title">Dashboard</h4>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="card card-stats card-primary">
-									<div class="card-body ">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-users"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Пациенты</p>
-													<h4 class="card-title">
-														<?php
-														require "../connect.php";
-
-														$doctorId = $_SESSION['doctor']['id'];
-														
-														$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId'";
-														$query = mysqli_query($connect, $sql);
-														$count = mysqli_num_rows($query);
-														echo $count;
-														?>
-													</h4>
-												</div>
+		</div>
+		<div class="main-panel">
+			<div class="content">
+				<div class="container-fluid">
+					<h4 class="page-title">Dashboard</h4>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="card card-stats card-primary">
+								<div class="card-body ">
+									<div class="row">
+										<div class="col-5">
+											<div class="icon-big text-center">
+												<i class="la la-users"></i>
 											</div>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card card-stats card-success">
-									<div class="card-body ">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-check-circle"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">"Отлично"</p>
-													<h4 class="card-title">
+										<div class="col-7 d-flex align-items-center">
+											<div class="numbers">
+												<p class="card-category">Пациенты</p>
+												<h4 class="card-title">
 													<?php
-														require "../connect.php";
+													require "../connect.php";
 
-														$doctorId = $_SESSION['doctor']['id'];
-														
-														$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId' AND `patientStatus`='Good'";
-														$query = mysqli_query($connect, $sql);
-														$count = mysqli_num_rows($query);
-														echo $count;
-														?>
-													</h4>
-												</div>
+													$doctorId = $_SESSION['doctor']['id'];
+
+													$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId'";
+													$query = mysqli_query($connect, $sql);
+													$count = mysqli_num_rows($query);
+													echo $count;
+													?>
+												</h4>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3">
-								<div class="card card-stats card-warning">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-leaf"></i>
-												</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card card-stats card-success">
+								<div class="card-body ">
+									<div class="row">
+										<div class="col-5">
+											<div class="icon-big text-center">
+												<i class="la la-check-circle"></i>
 											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">"Нормально"</p>
-													<h4 class="card-title">
+										</div>
+										<div class="col-7 d-flex align-items-center">
+											<div class="numbers">
+												<p class="card-category">"Отлично"</p>
+												<h4 class="card-title">
 													<?php
-														require "../connect.php";
+													require "../connect.php";
 
-														$doctorId = $_SESSION['doctor']['id'];
-														
-														$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId' AND `patientStatus`='Normal'";
-														$query = mysqli_query($connect, $sql);
-														$count = mysqli_num_rows($query);
-														echo $count;
-														?>
-													</h4>
-												</div>
+													$doctorId = $_SESSION['doctor']['id'];
+
+													$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId' AND `patientStatus`='Good'";
+													$query = mysqli_query($connect, $sql);
+													$count = mysqli_num_rows($query);
+													echo $count;
+													?>
+												</h4>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3">
-								<div class="card card-stats card-danger">
-									<div class="card-body ">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-exclamation-circle"></i>
-												</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card card-stats card-warning">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-5">
+											<div class="icon-big text-center">
+												<i class="la la-leaf"></i>
 											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">"Плохо"</p>
-													<h4 class="card-title">
+										</div>
+										<div class="col-7 d-flex align-items-center">
+											<div class="numbers">
+												<p class="card-category">"Нормально"</p>
+												<h4 class="card-title">
 													<?php
-														require "../connect.php";
+													require "../connect.php";
 
-														$doctorId = $_SESSION['doctor']['id'];
-														
-														$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId' AND `patientStatus`='Bad'";
-														$query = mysqli_query($connect, $sql);
-														$count = mysqli_num_rows($query);
-														echo $count;
-														?>
-													</h4>
-												</div>
+													$doctorId = $_SESSION['doctor']['id'];
+
+													$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId' AND `patientStatus`='Normal'";
+													$query = mysqli_query($connect, $sql);
+													$count = mysqli_num_rows($query);
+													echo $count;
+													?>
+												</h4>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-<!-- 							<div class="col-md-3">
+						</div>
+						<div class="col-md-3">
+							<div class="card card-stats card-danger">
+								<div class="card-body ">
+									<div class="row">
+										<div class="col-5">
+											<div class="icon-big text-center">
+												<i class="la la-exclamation-circle"></i>
+											</div>
+										</div>
+										<div class="col-7 d-flex align-items-center">
+											<div class="numbers">
+												<p class="card-category">"Плохо"</p>
+												<h4 class="card-title">
+													<?php
+													require "../connect.php";
+
+													$doctorId = $_SESSION['doctor']['id'];
+
+													$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId' AND `patientStatus`='Bad'";
+													$query = mysqli_query($connect, $sql);
+													$count = mysqli_num_rows($query);
+													echo $count;
+													?>
+												</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 							<div class="col-md-3">
 								<div class="card card-stats">
 									<div class="card-body ">
 										<div class="row">
@@ -380,21 +414,23 @@ if (!$_SESSION['doctor']) {
 									</div>
 								</div>
 							</div> -->
-						</div>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="card">
-									<div class="card-header">
-										<h4 class="card-title">Users Statistics</h4>
-										<p class="card-category">
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Users Statistics</h4>
+									<p class="card-category">
 										Users statistics this month</p>
-									</div>
-									<div class="card-body">
-										<div id="monthlyChart" class="chart chart-pie"></div>
-									</div>
+								</div>
+								<div class="card-body">
+									<div id="piechart" style="width: 900px; height: 500px;"></div>
 								</div>
 							</div>
-							<!--<div class="col-md-8">
+						</div>
+
+
+						<!--<div class="col-md-8">
 								<div class="card">
 									<div class="card-header">
 										<h4 class="card-title">2018 Sales</h4>
@@ -525,11 +561,11 @@ if (!$_SESSION['doctor']) {
 										</div>
 									</div>
 								</div> -->
-							</div>
-						</div>
 					</div>
 				</div>
-				<!-- <footer class="footer">
+			</div>
+		</div>
+		<!-- <footer class="footer">
 					<div class="container-fluid">
 						<nav class="pull-left">
 							<ul class="nav">
@@ -555,8 +591,8 @@ if (!$_SESSION['doctor']) {
 						</div>				
 					</div>
 				</footer> -->
-			</div>
-		</div>
+	</div>
+	</div>
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
@@ -568,10 +604,11 @@ if (!$_SESSION['doctor']) {
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body text-center">									
+				<div class="modal-body text-center">
 					<p>Currently the pro version of the <b>Ready Dashboard</b> Bootstrap is in progress development</p>
 					<p>
-						<b>We'll let you know when it's done</b></p>
+						<b>We'll let you know when it's done</b>
+					</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -594,4 +631,5 @@ if (!$_SESSION['doctor']) {
 <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 <script src="assets/js/ready.min.js"></script>
 <script src="assets/js/demo.js"></script>
+
 </html>
