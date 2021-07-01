@@ -25,35 +25,31 @@ if (!$_SESSION['doctor']) {
 		google.charts.setOnLoadCallback(drawChart);
 
 		function drawChart() {
+			<?php
+			$sql1 = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId' AND `patientStatus`='Good'";
+			$query1 = mysqli_query($connect, $sql1);
+			$good = mysqli_num_rows($query1);
 
-			/* var data = google.visualization.arrayToDataTable([
-				['students', 'contribution'],
-				<?php
-				$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId'";
-				$fire = mysqli_query($con, $sql);
-				while ($result = mysqli_fetch_assoc($fire)) {
-					echo "['" . $result['student'] . "'," . $result['contribution'] . "],";
-				}
+			$sql2 = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId' AND `patientStatus`='Normal'";
+			$query2 = mysqli_query($connect, $sql2);
+			$normal = mysqli_num_rows($query2);
 
-				?>
-			]);
-
-			$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId'";
-													$query = mysqli_query($connect, $sql);
-													$count = mysqli_num_rows($query); */
+			$sql3 = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId' AND `patientStatus`='Bad'";
+			$query3 = mysqli_query($connect, $sq3);
+			$bad = mysqli_num_rows($query3);
+			?>
+			
 
 			var data = google.visualization.arrayToDataTable([
-				['Task', 'Hours per Day'],
-				['Work', 11],
-				['Eat', 7],
-				['Commute', 4],
-				['Watch TV', 1]
+				['Отлично', <?php echo $good;?>],
+				['Нормально', <?php echo $normal;?>],
+				['Плохо', <?php echo $bad;?>]
 			]);
 
 
 			var options = {
 				title: 'Статистика пациентов',
-				colors: ['#1D62F0', '#59D05D', '#FBAD4C', '#FF646D']
+				colors: ['#59D05D', '#FBAD4C', '#FF646D']
 			};
 
 			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -430,16 +426,17 @@ if (!$_SESSION['doctor']) {
 					</div>
 					<div class="row">
 						<div class="col-md-4">
-							<div class="card">
-								<div class="card-header">
+							<!-- <div class="card">
+								<!-- <div class="card-header">
 									<h4 class="card-title">Users Statistics</h4>
 									<p class="card-category">
 										Users statistics this month</p>
+								</div> -->
+								<!-- <div class="card-body">
+									
 								</div>
-								<div class="card-body">
-									<div id="piechart" style="width: 900px; height: 500px;"></div>
-								</div>
-							</div>
+							</div> -->
+							<div id="piechart" style="width: 900px; height: 500px;"></div>
 						</div>
 
 
