@@ -43,7 +43,7 @@ if (!$_SESSION['doctor']) {
 							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
 								<?= $_SESSION['doctor']['doctorName'] ?> <?= $_SESSION['doctor']['doctorSurname'] ?>
-									<span class="user-level">Doctor</span>
+									<span class="user-level">Доктор</span>
 								</span>
 							</a>
 							<div class="clearfix"></div>
@@ -53,25 +53,25 @@ if (!$_SESSION['doctor']) {
 						<li class="nav-item">
 							<a href="doctorProfile.php">
 								<i class="la la-connectdevelop"></i>
-								<p>Dashboard</p>
+								<p>Главная</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="tables.php">
 								<i class="la la-th"></i>
-								<p>Tables</p>
+								<p>Пациенты</p>
 							</a>
 						</li>
 						<li class="nav-item active">
 							<a href="doctorFeedback.php">
 								<i class="la la-question-circle"></i>
-								<p>Support</p>
+								<p>Помощь</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="doctorLogout.php">
 								<i class="la la-sign-out"></i>
-								<p>Logout</p>
+								<p>Выход</p>
 							</a>
 						</li>
 					</ul>
@@ -80,7 +80,7 @@ if (!$_SESSION['doctor']) {
 			<div class="main-panel">
 				<div class="content">
 					<div class="container-fluid">
-						<h4 class="page-title">Графики</h4>
+						<h4 class="page-title">Помощь</h4>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="card">

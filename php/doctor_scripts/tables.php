@@ -1,12 +1,13 @@
 <?php
 session_start();
 if (!$_SESSION['doctor']) {
-    header('Location: ../../route.html');
+	header('Location: ../../route.html');
 }
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>Control-20 Patients</title>
@@ -16,6 +17,7 @@ if (!$_SESSION['doctor']) {
 	<link rel="stylesheet" href="assets/css/ready.css">
 	<link rel="stylesheet" href="assets/css/demo.css">
 </head>
+
 <body>
 	<div class="wrapper">
 		<div class="main-header">
@@ -30,7 +32,7 @@ if (!$_SESSION['doctor']) {
 			</div>
 			<nav class="navbar navbar-header navbar-expand-lg">
 				<div class="container-fluid">
-					
+
 					<!-- <form class="navbar-left navbar-form nav-search mr-md-3" action="">
 						<div class="input-group">
 							<input type="text" placeholder="Search ..." class="form-control">
@@ -129,106 +131,106 @@ if (!$_SESSION['doctor']) {
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Logout</a>
 								</ul> -->
-								<!-- /.dropdown-user -->
-							<!-- </li>
+					<!-- /.dropdown-user -->
+					<!-- </li>
 						</ul> -->
-					</div>
-				</nav>
-			</div>
-			<div class="sidebar">
-				<div class="scrollbar-inner sidebar-wrapper">
-					<div class="user">
-						<div class="photo">
-							<img src="assets/img/doctor.jpg">
-						</div>
-						<div class="info">
-							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-								<span>
-								<?= $_SESSION['doctor']['doctorName'] ?> <?= $_SESSION['doctor']['doctorSurname'] ?>
-									<span class="user-level">Doctor</span>
-								</span>
-							</a>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<ul class="nav">
-						<li class="nav-item">
-							<a href="doctorProfile.php">
-								<i class="la la-connectdevelop"></i>
-								<p>Dashboard</p>
-							</a>
-						</li>
-						<li class="nav-item active">
-							<a href="tables.php">
-								<i class="la la-th"></i>
-								<p>Tables</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="doctorFeedback.php">
-								<i class="la la-question-circle"></i>
-								<p>Support</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="doctorLogout.php">
-								<i class="la la-sign-out"></i>
-								<p>Logout</p>
-							</a>
-						</li>
-					</ul>
 				</div>
+			</nav>
+		</div>
+		<div class="sidebar">
+			<div class="scrollbar-inner sidebar-wrapper">
+				<div class="user">
+					<div class="photo">
+						<img src="assets/img/doctor.jpg">
+					</div>
+					<div class="info">
+						<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+							<span>
+								<?= $_SESSION['doctor']['doctorName'] ?> <?= $_SESSION['doctor']['doctorSurname'] ?>
+								<span class="user-level">Доктор</span>
+							</span>
+						</a>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<ul class="nav">
+					<li class="nav-item">
+						<a href="doctorProfile.php">
+							<i class="la la-connectdevelop"></i>
+							<p>Главная</p>
+						</a>
+					</li>
+					<li class="nav-item active">
+						<a href="tables.php">
+							<i class="la la-th"></i>
+							<p>Пациенты</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="doctorFeedback.php">
+							<i class="la la-question-circle"></i>
+							<p>Помощь</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="doctorLogout.php">
+							<i class="la la-sign-out"></i>
+							<p>Выход</p>
+						</a>
+					</li>
+				</ul>
 			</div>
-			<?php
-			session_start();
-			require "../connect.php";
+		</div>
+		<?php
+		session_start();
+		require "../connect.php";
 
-			$doctorId = $_SESSION['doctor']['id'];
+		$doctorId = $_SESSION['doctor']['id'];
 
-			$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId'";
-			$query = mysqli_query($connect, $sql);
-			$count = mysqli_num_rows($query);
-			if ($count != 0) {
-			?>
+		$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId'";
+		$query = mysqli_query($connect, $sql);
+		$count = mysqli_num_rows($query);
+		if ($count != 0) {
+		?>
 			<div class="main-panel">
 				<div class="content">
 					<div class="container-fluid">
-						<h4 class="page-title">Tables</h4>
+						<h4 class="page-title">Пациенты</h4>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="card">
 									<div class="card-header">
-										<div class="card-title">Responsive Table</div>
+										<div class="card-title">Список пациентов</div>
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
 											<table class="table table-bordered">
 												<thead>
 													<tr>
-													<th>ID</th>
-													<th>Имя</th>
-													<th>Фамилия</th>
-													<th>Email</th>
-													<th>Номер телефона</th>
-													<th>Адрес</th>
-													<th>Статус</th>
-													<th>Api Key</th>
+														<th>ID</th>
+														<th>Имя</th>
+														<th>Фамилия</th>
+														<th>Email</th>
+														<th>Номер телефона</th>
+														<th>Адрес</th>
+														<th>Статус</th>
+														<th>Api Key</th>
 													</tr>
 												</thead>
-												<tbody>	
-												<?php
-												while ($result = mysqli_fetch_assoc($query)) {
-												?>
-												<tr>
-												<td align="center"><?php echo $result["id"]; ?></td>
-												<td align="center"><?php echo $result["patientName"]; ?></td>
-												<td align="center"><?php echo $result["patientSurname"]; ?></td>
-												<td align="center"><?php echo $result["patientEmail"]; ?></td>
-												<td align="center"><?php echo $result["patientPhoneNumber"]; ?></td>
-												<td align="center"><?php echo $result["patientAddress"]; ?></td>
-												<td align="center"><?php echo $result["patientStatus"]; ?></td>
-												<td align="center"><a href="patientGraph.php?apiKey=<?php echo $result["apiKey"]; ?>"><?php echo $result["apiKey"]; ?></a></td>
-												</tr>
+												<tbody>
+													<?php
+													while ($result = mysqli_fetch_assoc($query)) {
+													?>
+														<tr>
+															<td align="center"><?php echo $result["id"]; ?></td>
+															<td align="center"><?php echo $result["patientName"]; ?></td>
+															<td align="center"><?php echo $result["patientSurname"]; ?></td>
+															<td align="center"><?php echo $result["patientEmail"]; ?></td>
+															<td align="center"><?php echo $result["patientPhoneNumber"]; ?></td>
+															<td align="center"><?php echo $result["patientAddress"]; ?></td>
+															<td align="center"><?php echo $result["patientStatus"]; ?></td>
+															<td align="center"><a href="patientGraph.php?apiKey=<?php echo $result["apiKey"]; ?>"><?php echo $result["apiKey"]; ?></a></td>
+														</tr>
 												<?php
 													}
 												} else {
@@ -246,9 +248,9 @@ if (!$_SESSION['doctor']) {
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>
-</div>
+	</div>
+	</div>
 </body>
 <script src="assets/js/core/jquery.3.2.1.min.js"></script>
 <script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
@@ -264,7 +266,7 @@ if (!$_SESSION['doctor']) {
 <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 <script src="assets/js/ready.min.js"></script>
 <script>
-	$('#displayNotif').on('click', function(){
+	$('#displayNotif').on('click', function() {
 		var placementFrom = $('#notify_placement_from option:selected').val();
 		var placementAlign = $('#notify_placement_align option:selected').val();
 		var state = $('#notify_state option:selected').val();
@@ -281,7 +283,7 @@ if (!$_SESSION['doctor']) {
 		content.url = 'index.html';
 		content.target = '_blank';
 
-		$.notify(content,{
+		$.notify(content, {
 			type: state,
 			placement: {
 				from: placementFrom,
@@ -291,4 +293,5 @@ if (!$_SESSION['doctor']) {
 		});
 	});
 </script>
+
 </html>
