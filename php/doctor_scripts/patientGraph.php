@@ -58,7 +58,7 @@ if (!$_SESSION['doctor']) {
 	<div class="wrapper">
 		<div class="main-header">
 			<div class="logo-header">
-				<a href="doctorProfile.php" class="logo">
+				<a href="index.html" class="logo">
 					Control-20
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,7 +101,7 @@ if (!$_SESSION['doctor']) {
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="doctorFeedback.php">
+							<a href="tables.html">
 								<i class="la la-question-circle"></i>
 								<p>Support</p>
 							</a>
@@ -126,7 +126,6 @@ if (!$_SESSION['doctor']) {
 
                   <?php
 require "../connect.php";
-
 if (isset($_POST['submit'])) {
 
   $date = $_POST['datepicker'];
@@ -148,19 +147,23 @@ if (isset($_POST['submit'])) {
   $value2 = json_encode(array_column($sensor_data, 'value2'), JSON_NUMERIC_CHECK);
   $value3 = json_encode(array_column($sensor_data, 'value3'), JSON_NUMERIC_CHECK);
   $reading_time = json_encode($readings_time, JSON_NUMERIC_CHECK);
-
   $result->free();
   $connect->close();
 }
+
 ?>
+
+
 
 <a href="tables.php"><button type="button" class="btn btn-primary" style="margin: 2% 0 0 2%">Назад</button></a>
   <h2>ESP COVID-19 Monitoring Center (Control-20)</h2>
   <form class="form" method="POST">
     <p>Начальная дата: <input type="text" id="datepicker" name="datepicker" required></p>
     <p>Конечная дата: <input type="text" id="datepicker_1" name="datepicker_1" required></p>
-    <button type="submit" class="btn btn-black" name="submit">Поставить диапазон</button>
+    <button type="submit" class="btn btn-black" name="submit" style = "margin-bottom: 1.5%">Поставить диапазон</button>
   </form>
+  <a style="display: flex; justify-content: center; margin: auto;" href = "downloadTable.php?apiKey=<?php echo $apiKey;?>&date=<?php echo $date;?>&date1=<?php echo $date_1;?>">
+<button class="btn btn-black" name="table">Скачать таблицу</button></a>
   <div id="chart-temperature" class="container"></div>
   <div id="chart-heart-rate" class="container"></div>
   <div id="chart-saturation" class="container"></div>
