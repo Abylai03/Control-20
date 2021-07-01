@@ -160,8 +160,8 @@ if (!$_SESSION['doctor']) {
                   <a href="tables.php"><button type="button" class="btn btn-primary" style="margin: 2% 0 0 2%">Назад</button></a>
                   <h2>Центр мониторинга ESP-32</h2>
                   <form class="form" method="POST">
-                    <p>Начальная дата: <input type="text" id="datepicker" name="datepicker" required></p>
-                    <p>Конечная дата: <input type="text" id="datepicker_1" name="datepicker_1" required></p>
+                    <p>Начальная дата: <input type="text" id="datepicker" name="datepicker" placeholder="YYYY-MM-DD" required></p>
+                    <p>Конечная дата: <input type="text" id="datepicker_1" name="datepicker_1" placeholder="YYYY-MM-DD" required></p>
                     <button type="submit" class="btn btn-black" name="submit" style="margin-bottom: 1.5%">Поставить диапазон</button>
                   </form>
                   <a style="display: flex; justify-content: center; margin: auto;" href="downloadTable.php?apiKey=<?php echo $apiKey; ?>&date=<?php echo $date; ?>&date1=<?php echo $date_1; ?>">
