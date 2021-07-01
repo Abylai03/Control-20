@@ -55,7 +55,7 @@ if (!$_SESSION['doctor']) {
 
 			var options = {
 				title: 'Статистика пациентов',
-				colors: ['#FFFFFF','#59D05D', '#FBAD4C', '#FF646D']
+				colors: ['#59D05D', '#FBAD4C', '#FF646D']
 			};
 
 			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
