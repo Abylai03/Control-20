@@ -47,14 +47,14 @@ if (!$_SESSION['doctor']) {
 
 			var data = google.visualization.arrayToDataTable([
 				['Статистика', 'пациентов'],
-				['0', 0],
-				['Отлично', <?php echo $good; ?>],
-				['Нормально', <?php echo $normal; ?>],
-				['Плохо', <?php echo $bad; ?>]
+				['Удовлетворительное', <?php echo $good; ?>],
+				['Средней тяжести', <?php echo $normal; ?>],
+				['Тяжёлое', <?php echo $bad; ?>]
 			]);
 
 
 			var options = {
+				fontSize: 13,
 				title: 'Статистика пациентов',
 				colors: ['#59D05D', '#FBAD4C', '#FF646D']
 			};
@@ -131,6 +131,7 @@ if (!$_SESSION['doctor']) {
 			<div class="content">
 				<div class="container-fluid">
 					<h4 class="page-title">Главная</h4>
+					<h6 class="page-title">Состояния пациентов:</h6>
 					<div class="row">
 						<div class="col-md-3">
 							<div class="card card-stats card-primary">
@@ -171,9 +172,9 @@ if (!$_SESSION['doctor']) {
 												<i class="la la-check-circle"></i>
 											</div>
 										</div>
-										<div class="col-7 d-flex align-items-center">
+										<div class="col-7 d-flex align-items-center" style="padding-left: 0;">
 											<div class="numbers">
-												<p class="card-category">"Отлично"</p>
+												<p class="card-category" style = "display: inline-block !important;">"Хорошее"</p>
 												<h4 class="card-title">
 													<?php
 													require "../connect.php";
@@ -203,7 +204,7 @@ if (!$_SESSION['doctor']) {
 										</div>
 										<div class="col-7 d-flex align-items-center">
 											<div class="numbers">
-												<p class="card-category">"Нормально"</p>
+												<p class="card-category">"Средней тяжести"</p>
 												<h4 class="card-title">
 													<?php
 													require "../connect.php";
@@ -233,7 +234,7 @@ if (!$_SESSION['doctor']) {
 										</div>
 										<div class="col-7 d-flex align-items-center">
 											<div class="numbers">
-												<p class="card-category">"Плохо"</p>
+												<p class="card-category">"Тяжёлое"</p>
 												<h4 class="card-title">
 													<?php
 													require "../connect.php";
@@ -254,7 +255,7 @@ if (!$_SESSION['doctor']) {
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<!-- <div class="card">
 								<!-- <div class="card-header">
 									<h4 class="card-title">Users Statistics</h4>
@@ -271,6 +272,7 @@ if (!$_SESSION['doctor']) {
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	</div>
 	</div>

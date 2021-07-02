@@ -1,18 +1,18 @@
 <?php
-$servername = "localhost:3306";
+/* $servername = "localhost:3306";
 // REPLACE with your Database name
 $dbname = "ESP32";
 // REPLACE with Database user
 $username = "Abylay03";
 // REPLACE with Database user password
-$password = "jn8Xh8?4"; 
+$password = "jn8Xh8?4";  */
 
-/* 
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "ESP32";
-
+/*
 $servername = "localhost:3306";
 $dbname = "ESP32";
 $username = "Abylay03";
