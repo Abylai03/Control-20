@@ -1279,14 +1279,13 @@ p.follow-instagram a {
   display: inline-block;
   position: relative;
 }
-
+/* 
 .tests img {
   position: relative;
   z-index: 10;
   width: 600px !important;
   height: 400px !important;
-  /* height: auto; */
-}
+} */
 
 .popup-gallery img {
   position: relative;
