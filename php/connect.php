@@ -7,17 +7,14 @@ $username = "Abylay03";
 // REPLACE with Database user password
 $password = "jn8Xh8?4"; 
 
-
 /* $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ESP32"; */
-/*
-$servername = "localhost:3306";
+// REPLACE with your Database name
 $dbname = "ESP32";
-$username = "Abylay03";
-$password = "jn8Xh8?4";  
-*/
+// REPLACE with Database user
+$username = "root";
+// REPLACE with Database user password
+$password = "";  */
+
 
 // Create connection
 $connect = new mysqli($servername, $username, $password, $dbname);

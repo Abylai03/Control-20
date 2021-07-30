@@ -141,6 +141,12 @@ $(".popup-gallery")
   .find("a.popup2")
   .magnificPopup({
     type: "image",
+    image: {
+			verticalFit: true,
+			titleSrc: function(item) {
+				return '<a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">Ссылка на источник</a>';
+			}
+		},
     gallery: {
       enabled: true,
     },
