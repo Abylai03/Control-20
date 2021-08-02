@@ -93,29 +93,50 @@ if (!$_SESSION['doctor']) {
 
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title">Добавить пациента</div>
+                                    <div class="card-title">Изменить данные пациента</div>
                                 </div>
+                                <?php
+                                require "../connect.php";
+
+                                $apiKey = $_GET['apiKey'];
+                                $sql = "SELECT * FROM `patients` WHERE `apiKey`='$apiKey'";
+                                $query = mysqli_query($connect, $sql);
+
+                                if (mysqli_num_rows($query) > 0) {
+                                    // output data of each row
+                                    while ($row = mysqli_fetch_assoc($query)) {
+                                        $id = $row["id"];
+                                        $patientName = $row["patientName"];
+                                        $patientSurname = $row["patientSurname"];
+                                        $patientEmail = $row["patientEmail"];
+                                        $patientPhoneNumber = $row["patientPhoneNumber"];
+                                        $patientAddress = $row["patientAddress"];
+                                        $patientStatus = $row["patientStatus"];
+                                        $doctorId = $row["doctorId"];
+                                    }
+                                }
+                                ?>
                                 <div class="card-body">
                                     <form method="POST">
                                         <div class="form-group">
                                             <label for="name">Имя пациента</label>
-                                            <input name="name" type="text" class="form-control form-control">
+                                            <input type="text" class="form-control form-control" id="name" name="name" value="<?php echo $patientName; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="surname">Фамилия пациента</label>
-                                            <input name="surname" type="text" class="form-control form-control">
+                                            <input type="text" class="form-control form-control" id="surname" name="surname" value="<?php echo $patientSurname; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Почта пациента</label>
-                                            <input name="email" type="email" class="form-control form-control">
+                                            <input type="email" class="form-control form-control" id="email" name="email" value="<?php echo $patientEmail; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="phone">Номер телефона пациента</label>
-                                            <input name="phone" type="number" class="form-control form-control">
+                                            <input type="number" class="form-control form-control" id="phone" name="phone" value="<?php echo $patientPhoneNumber; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="address">Адрес/палата пациента</label>
-                                            <input name="address" type="text" class="form-control form-control">
+                                            <input type="text" class="form-control form-control" id="address" name="address" value="<?php echo $patientAddress; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="doc">Лечащий врач</label>
@@ -125,37 +146,43 @@ if (!$_SESSION['doctor']) {
 
                                                 $doctorId = $_SESSION['doctor']['id'];
 
-                                                $sql = "SELECT * FROM `doctors`";
-                                                $query = mysqli_query($connect, $sql);
-                                                $count = mysqli_num_rows($query);
+                                                $sql1 = "SELECT * FROM `doctors`";
+                                                $query1 = mysqli_query($connect, $sql1);
+                                                $count = mysqli_num_rows($query1);
                                                 if ($count != 0) {
-                                                    while ($result = mysqli_fetch_assoc($query)) {
+                                                    while ($result = mysqli_fetch_assoc($query1)) {
                                                 ?>
-                                                        <option value="<?php echo $result["id"]; ?>"><?php echo $result["doctorName"]; ?> <?php echo $result["doctorSurname"]; ?></option>
+                                                        <option value="<?php echo $result["id"]; ?>" <?php if ($result["id"] == $doctorId) {
+                                                                                                            echo ("selected");
+                                                                                                        } ?>><?php echo $result["doctorName"]; ?> <?php echo $result["doctorSurname"]; ?></option>
                                                 <?php
                                                     }
                                                 } else {
                                                     echo "База пуста";
                                                 }
-
                                                 ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="status">Состояние пациента</label>
-                                            <select name="status" class="form-control input-square">
-                                                <option value="Good">Хорошее</option>
-                                                <option value="Normal">Средней тяжести</option>
-                                                <option value="Bad">Тяжёлое</option>
+                                            <select class="form-control input-square" id="status" name="status">
+                                                <option value="Good" <?php if ($patientStatus == 'Good') {
+                                                                            echo ("selected");
+                                                                        } ?>>Хорошее</option>
+                                                <option value="Normal" <?php if ($patientStatus == 'Normal') {
+                                                                            echo ("selected");
+                                                                        } ?>>Средней тяжести</option>
+                                                <option value="Bad" <?php if ($patientStatus == 'Bad') {
+                                                                        echo ("selected");
+                                                                    } ?>>Тяжёлое</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="number">Номер устройства</label>
-                                            <input name="number" type="text" class="form-control form-control">
+                                            <input type="text" class="form-control form-control" id="number" name="number" value="<?php echo $apiKey; ?>">
                                         </div>
                                         <div class="card-action">
-                                            <!-- <input name="submit" type="submit" class="btn btn-success" value="Добавить" /> -->
-                                            <button name="submit" type="submit" class="btn btn-success">Добавить</button>
+                                            <input type="submit" name="submit" class="btn btn-success" value="Изменить"></input>
                                         </div>
                                     </form>
                                 </div>
@@ -167,7 +194,6 @@ if (!$_SESSION['doctor']) {
         </div>
     </div>
 </body>
-
 <script src="assets/js/core/jquery.3.2.1.min.js"></script>
 <script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 <script src="assets/js/core/popper.min.js"></script>
@@ -177,6 +203,7 @@ if (!$_SESSION['doctor']) {
 <script src="assets/js/ready.min.js"></script>
 
 </html>
+
 
 <?php
 require "../connect.php";
@@ -190,13 +217,14 @@ if (isset($_POST['submit'])) {
     $status = $_POST['status'];
     $number = $_POST['number'];
 
-    $sql = "INSERT INTO `patients` (`id`, `patientName`, `patientSurname`, `patientEmail`, `patientPhoneNumber`, `patientAddress`, `patientStatus`, `apiKey`, `doctorId`) 
-    VALUES (NULL, '$name', '$surname ', '$email', '$phone', '$address', '$status', '$number', '$doc')";
+    $sql = "UPDATE `patients` SET `patientName`='$name', `patientSurname`='$surname', `patientEmail`='$email', 
+    `patientPhoneNumber`='$phone', `patientAddress`='$address', `patientStatus`='$status', 
+    `apiKey`='$number', `doctorId`='$doc'
+    WHERE `id`='$id'";
     $query = mysqli_query($connect, $sql);
-
     if ($query) {
         echo "<script>
-        alert('Пациент добавлен');
+        alert('Информация изменена!');
         window.location.href='tables.php';
         </script>";
     } else {

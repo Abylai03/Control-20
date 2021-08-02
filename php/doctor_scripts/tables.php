@@ -16,6 +16,12 @@ if (!$_SESSION['doctor']) {
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 	<link rel="stylesheet" href="assets/css/ready.css">
 	<link rel="stylesheet" href="assets/css/demo.css">
+
+	<style>
+		th {
+			text-align: center;
+		}
+	</style>
 </head>
 
 <body>
@@ -25,6 +31,15 @@ if (!$_SESSION['doctor']) {
 				<a href="doctorProfile.php" class="logo">
 					Control-20
 				</a>
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
+			</div>
+			<nav class="navbar navbar-header navbar-expand-lg">
+				<div class="container-fluid">
+				</div>
+			</nav>
 		</div>
 		<div class="sidebar">
 			<div class="scrollbar-inner sidebar-wrapper">
@@ -71,7 +86,6 @@ if (!$_SESSION['doctor']) {
 			</div>
 		</div>
 		<?php
-		session_start();
 		require "../connect.php";
 
 		$doctorId = $_SESSION['doctor']['id'];
@@ -96,14 +110,15 @@ if (!$_SESSION['doctor']) {
 											<table class="table table-bordered">
 												<thead>
 													<tr>
-														<th>ID</th>
-														<th>Имя</th>
-														<th>Фамилия</th>
-														<th>Email</th>
-														<th>Номер телефона</th>
-														<th>Адрес</th>
-														<th>Статус</th>
-														<th>Api Key</th>
+														<th align="center">ID</th>
+														<th align="center">Имя</th>
+														<th align="center">Фамилия</th>
+														<th align="center">Email</th>
+														<th align="center">Номер телефона</th>
+														<th align="center">Адрес</th>
+														<th align="center">Статус</th>
+														<th align="center">Api Key</th>
+														<th align="center" colspan="2">Действия</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -119,6 +134,8 @@ if (!$_SESSION['doctor']) {
 															<td align="center"><?php echo $result["patientAddress"]; ?></td>
 															<td align="center"><?php echo $result["patientStatus"]; ?></td>
 															<td align="center"><a href="patientGraph.php?apiKey=<?php echo $result["apiKey"]; ?>"><?php echo $result["apiKey"]; ?></a></td>
+															<td align="center"><a href="editPatient.php?apiKey=<?php echo $result["apiKey"]; ?>"><button class="btn btn-warning"><i class="la la-edit"></i></button></a></td>
+															<td align="center"><a href="deletePatient.php?apiKey=<?php echo $result["apiKey"]; ?>"><button class="btn btn-danger"><i class="la la-close"></i></button></a></td>
 														</tr>
 												<?php
 													}
@@ -132,15 +149,14 @@ if (!$_SESSION['doctor']) {
 										</div>
 									</div>
 								</div>
-								<!-- <a style="display: flex; justify-content: center; margin: auto;" href="addPatient.php">
-									<button class="btn btn-black" name="table">Добавить пациента в базу</button>
-								</a> -->
+								<a style="display: flex; justify-content: center; margin: auto;" href="addPatient.php">
+									<button class="btn btn-primary" name="table">Добавить пациента в базу</button>
+								</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-	</div>
 	</div>
 	</div>
 </body>

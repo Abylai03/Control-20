@@ -107,7 +107,7 @@ if (!$_SESSION['doctor']) {
             </a>
           </li>
           <li class="nav-item">
-            <a href="tables.html">
+            <a href="doctorFeedback.php">
               <i class="la la-question-circle"></i>
               <p>Помощь</p>
             </a>

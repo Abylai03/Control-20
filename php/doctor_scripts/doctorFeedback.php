@@ -104,7 +104,7 @@ if (!$_SESSION['doctor']) {
                                     }
                                     ?>
                                     <form method="POST" style="margin: 2%">
-                                        <div class="form-group">
+                                        <div class="form-group" style="padding-left: 0;">
                                             <label for="message">Введите ваше сообщение</label>
                                             <textarea class="form-control" rows="3" name="feedback" required></textarea>
                                         </div>
