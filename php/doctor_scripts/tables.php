@@ -34,7 +34,6 @@ if (!$_SESSION['doctor']) {
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
 			</div>
 			<nav class="navbar navbar-header navbar-expand-lg">
 				<div class="container-fluid">
@@ -135,8 +134,42 @@ if (!$_SESSION['doctor']) {
 															<td align="center"><?php echo $result["patientStatus"]; ?></td>
 															<td align="center"><a href="patientGraph.php?apiKey=<?php echo $result["apiKey"]; ?>"><?php echo $result["apiKey"]; ?></a></td>
 															<td align="center"><a href="editPatient.php?apiKey=<?php echo $result["apiKey"]; ?>"><button class="btn btn-warning"><i class="la la-edit"></i></button></a></td>
-															<td align="center"><a href="deletePatient.php?apiKey=<?php echo $result["apiKey"]; ?>"><button class="btn btn-danger"><i class="la la-close"></i></button></a></td>
+															<td align="center">
+																<a data-toggle="modal" data-target="#exampleModal" value="deletePatient.php?apiKey=<?php echo $result["apiKey"]; ?>" onclick="newVal(this)">
+																	<button class="btn btn-danger"><i class="la la-close"></i></button>
+																</a>
+															</td>
 														</tr>
+														<!-- Modal -->
+														<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+															<div class="modal-dialog" role="document">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h5 class="modal-title" id="exampleModalLabel">Вы уверены, что хотите удалить пациента из базы?</h5>
+																		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																			<span aria-hidden="true">&times;</span>
+																		</button>
+																	</div>
+																	<!-- 
+																	<div class="modal-body">
+																		...
+																	</div> -->
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
+																		<a id="del" href=""><button type="button" class="btn btn-primary">Да</button></a>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<script type="text/javascript">
+															function newVal(t) {
+																var res = $(t).attr('value');
+																console.log(res);
+																document.getElementById("del").href = res;
+																return false;
+															}
+														</script>
 												<?php
 													}
 												} else {
