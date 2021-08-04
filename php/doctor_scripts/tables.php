@@ -76,6 +76,12 @@ if (!$_SESSION['doctor']) {
 						</a>
 					</li>
 					<li class="nav-item">
+						<a href="changePassword.php">
+							<i class="la la-key"></i>
+							<p>Сменить пароль</p>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a href="doctorLogout.php">
 							<i class="la la-sign-out"></i>
 							<p>Выход</p>

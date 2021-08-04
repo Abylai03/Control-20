@@ -36,8 +36,8 @@ if (!$_SESSION['doctor']) {
                     Control-20
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
         </div>
         <div class="sidebar">
@@ -76,6 +76,12 @@ if (!$_SESSION['doctor']) {
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="changePassword.php">
+                            <i class="la la-key"></i>
+                            <p>Сменить пароль</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="doctorLogout.php">
                             <i class="la la-sign-out"></i>
                             <p>Выход</p>
@@ -102,27 +108,28 @@ if (!$_SESSION['doctor']) {
                                     <form method="POST">
                                         <div class="form-group">
                                             <label for="name">Имя пациента</label>
-                                            <input name="name" type="text" class="form-control form-control">
+                                            <input name="name" type="text" class="form-control form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="surname">Фамилия пациента</label>
-                                            <input name="surname" type="text" class="form-control form-control">
+                                            <input name="surname" type="text" class="form-control form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Почта пациента</label>
-                                            <input name="email" type="email" class="form-control form-control">
+                                            <input name="email" type="email" class="form-control form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="phone">Номер телефона пациента</label>
-                                            <input name="phone" type="number" class="form-control form-control">
+                                            <input name="phone" type="number" class="form-control form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="address">Адрес/палата пациента</label>
-                                            <input name="address" type="text" class="form-control form-control">
+                                            <input name="address" type="text" class="form-control form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="doc">Лечащий врач</label>
-                                            <select name="doc" class="form-control input-square">
+                                            <select name="doc" class="form-control input-square" required>
+                                                <option value="">-</option>
                                                 <?php
                                                 require "../connect.php";
 
@@ -146,7 +153,8 @@ if (!$_SESSION['doctor']) {
                                         </div>
                                         <div class="form-group">
                                             <label for="status">Состояние пациента</label>
-                                            <select name="status" class="form-control input-square">
+                                            <select name="status" class="form-control input-square" required>
+                                                <option value="">-</option>
                                                 <option value="Good">Хорошее</option>
                                                 <option value="Normal">Средней тяжести</option>
                                                 <option value="Bad">Тяжёлое</option>
@@ -154,7 +162,7 @@ if (!$_SESSION['doctor']) {
                                         </div>
                                         <div class="form-group">
                                             <label for="number">Номер устройства</label>
-                                            <input name="number" type="text" class="form-control form-control">
+                                            <input name="number" type="text" class="form-control form-control" required>
                                         </div>
                                         <div class="card-action">
                                             <!-- <input name="submit" type="submit" class="btn btn-success" value="Добавить" /> -->

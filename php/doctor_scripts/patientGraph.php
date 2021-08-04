@@ -112,6 +112,12 @@ if (!$_SESSION['doctor']) {
             </a>
           </li>
           <li class="nav-item">
+            <a href="changePassword.php">
+              <i class="la la-key"></i>
+              <p>Сменить пароль</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="doctorLogout.php">
               <i class="la la-sign-out"></i>
               <p>Выход</p>
@@ -167,7 +173,7 @@ if (!$_SESSION['doctor']) {
                     <p>Конечная дата: <input type="text" id="datepicker_1" name="datepicker_1" placeholder="YYYY-MM-DD" required></p>
                     <button type="submit" class="btn btn-black" name="submit" style="margin-bottom: 1.5%">Поставить диапазон</button>
                   </form>
-                  <a style="display: flex; justify-content: center; margin: auto;" href="downloadTable.php?apiKey=<?php echo $apiKey; ?>&date=<?php echo $date; ?>&date1=<?php echo $date_1; ?>">
+                  <a style="display: flex; justify-content: center; margin: auto; max-width: 200px" href="downloadTable.php?apiKey=<?php echo $apiKey; ?>&date=<?php echo $date; ?>&date1=<?php echo $date_1; ?>">
                     <button class="btn btn-black" name="table">Скачать таблицу</button></a>
                   <div id="chart-temperature" class="container"></div>
                   <div id="chart-heart-rate" class="container"></div>

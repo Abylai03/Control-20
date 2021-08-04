@@ -1,9 +1,4 @@
 <?php
-session_start();
-if (!$_SESSION['doctor']) {
-    header('Location: ../../route.html');
-}
-
 require "../connect.php";
 
 $output = '';

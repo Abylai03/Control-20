@@ -19,11 +19,12 @@ if ($row_cnt>0){
         "patientSurname" => $patient['patientSurname'],
         "patientPassword" => $patient['patientPassword'],
         "patientPhoneNumber" => $patient['patientPhoneNumber'],
-        "patientAddress" => $patient['patientAddress']
+        "patientAddress" => $patient['patientAddress'],
+        "patientStatus" => $patient['patientStatus'],
+        "apiKey" => $patient['apiKey']
     ];
     header('Location: patientProfile.php');
 }else {
 	echo "Email or password is incorrect";
 }
 }
-?>

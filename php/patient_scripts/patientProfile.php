@@ -1,209 +1,161 @@
 <?php
 session_start();
 if (!$_SESSION['patient']) {
-    header('Location: ../../route.html');
+	header('Location: ../../route.html');
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профиль</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <style>
-        /***
-      User Profile Sidebar by @keenthemes
-      A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
-      Licensed under MIT
-      ***/
-
-        body {
-            background: #F1F3FA;
-        }
-
-        /* Profile container */
-        .profile {
-            margin: 20px 0;
-        }
-
-        /* Profile sidebar */
-        .profile-sidebar {
-            padding: 20px 0 10px 0;
-            background: #fff;
-        }
-
-        .profile-userpic img {
-            float: none;
-            margin: 0 auto;
-            width: 50%;
-            height: 50%;
-            -webkit-border-radius: 50% !important;
-            -moz-border-radius: 50% !important;
-            border-radius: 50% !important;
-        }
-
-        .profile-usertitle {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .profile-usertitle-name {
-            color: #5a7391;
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 7px;
-        }
-
-        .profile-usertitle-job {
-            text-transform: uppercase;
-            color: #5b9bd1;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .profile-userbuttons {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .profile-userbuttons .btn {
-            text-transform: uppercase;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 6px 15px;
-            margin-right: 5px;
-        }
-
-        .profile-userbuttons .btn:last-child {
-            margin-right: 0px;
-        }
-
-        .profile-usermenu {
-            margin-top: 30px;
-        }
-
-        .profile-usermenu ul li {
-            border-bottom: 1px solid #f0f4f7;
-        }
-
-        .profile-usermenu ul li:last-child {
-            border-bottom: none;
-        }
-
-        .profile-usermenu ul li a {
-            color: #93a3b5;
-            font-size: 14px;
-            font-weight: 400;
-        }
-
-        .profile-usermenu ul li a i {
-            margin-right: 8px;
-            font-size: 14px;
-        }
-
-        .profile-usermenu ul li a:hover {
-            background-color: #fafcfd;
-            color: #5b9bd1;
-        }
-
-        .profile-usermenu ul li.active {
-            border-bottom: none;
-        }
-
-        .profile-usermenu ul li.active a {
-            color: #5b9bd1;
-            background-color: #f6f9fb;
-            border-left: 2px solid #5b9bd1;
-            margin-left: -2px;
-        }
-
-        /* Profile Content */
-        .profile-content {
-            padding: 20px;
-            background: #fff;
-            min-height: 460px;
-        }
-    </style>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Control-20 Main Panel</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+	<link rel="stylesheet" href="../doctor_scripts/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="../doctor_scripts/assets/css/ready.css">
+	<link rel="stylesheet" href="../doctor_scripts/assets/css/demo.css">
 </head>
 
 <body>
-    <div class="container" style="margin: auto; width: 1500px;">
-        <div class="row profile">
-            <div class="col-md-3">
-                <div class="profile-sidebar">
-                    <!-- SIDEBAR USERPIC -->
-                    <!-- <div class="profile-userpic">
-                        <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
-                    </div> -->
-                    <!-- END SIDEBAR USERPIC -->
-                    <!-- SIDEBAR USER TITLE -->
-                    <div class="profile-usertitle">
-                        <div class="profile-usertitle-name">
-                            <?= $_SESSION['patient']['patientName'] ?> <?= $_SESSION['patient']['patientSurname'] ?>
-                        </div>
-                        <!-- <div class="profile-usertitle-job">
-                            Developer
-                        </div> -->
-                    </div>
-                    <!-- END SIDEBAR USER TITLE -->
-                    <!-- SIDEBAR BUTTONS -->
-                    <!-- <div class="profile-userbuttons">
-                        <button type="button" class="btn btn-success btn-sm">Follow</button>
-                        <button type="button" class="btn btn-danger btn-sm">Message</button>
-                    </div> -->
-                    <!-- END SIDEBAR BUTTONS -->
-                    <!-- SIDEBAR MENU -->
-                    <div class="profile-usermenu">
-                        <ul class="nav">
-                            <li class="active">
-                                <a href="#" onclick="go('patients.php')">
-                                    <i class="glyphicon glyphicon-home"></i>
-                                    Главная </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    Настройки аккаунта </a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="go('patients.php')">
-                                    <i class="glyphicon glyphicon-signal"></i>
-                                    Пациенты </a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="go('feedbackform.php')">
-                                    <i class="glyphicon glyphicon-flag"></i>
-                                    Помощь </a>
-                            </li>
-                            <li>
-                                <a href="patientLogout.php">
-                                    <i class="glyphicon glyphicon-log-out"></i>
-                                    Выход </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- END MENU -->
-                </div>
-            </div>
-			<script>
-			  function go(loc) {
-				document.getElementById('frame').src = loc;
-			  }
-			</script>
-            <iframe class="col-md-9" src="patients.php" height="1200" id="frame" style="padding:0;">
-                <div class="profile-content">
-                    Some user related content goes here...
-                </div>
-            </iframe>
-        </div>
-    </div>
+	<div class="wrapper">
+		<div class="main-header">
+			<div class="logo-header">
+				<a href="patientProfile.php" class="logo">
+					Control-20
+				</a>
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<nav class="navbar navbar-header navbar-expand-lg">
+				<div class="container-fluid">
+				</div>
+			</nav>
+		</div>
+		<div class="sidebar">
+			<div class="scrollbar-inner sidebar-wrapper">
+				<div class="user">
+					<div class="photo">
+						<img src="../doctor_scripts/assets/img/patient.png">
+					</div>
+					<div class="info">
+						<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+							<span>
+								<?= $_SESSION['patient']['patientName'] ?> <?= $_SESSION['patient']['patientSurname'] ?>
+								<span class="user-level">Пациент</span>
+							</span>
+						</a>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<ul class="nav">
+					<li class="nav-item active">
+						<a href="patientProfile.php">
+							<i class="la la-connectdevelop"></i>
+							<p>Главная</p>
+						</a>
+					</li>
+                    <li class="nav-item">
+						<a href="patientGraph.php">
+							<i class="la la-line-chart"></i>
+							<p>Показатели</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="patientFeedback.php">
+							<i class="la la-question-circle"></i>
+							<p>Помощь</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="patientSettings.php">
+							<i class="la la-cog"></i>
+							<p>Настройки</p>
+						</a>
+					</li>
+                    <li class="nav-item">
+                        <a href="changePassword.php">
+                            <i class="la la-key"></i>
+                            <p>Сменить пароль</p>
+                        </a>
+                    </li>
+					<li class="nav-item">
+						<a href="patientLogout.php">
+							<i class="la la-sign-out"></i>
+							<p>Выход</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="main-panel">
+			<div class="content">
+				<div class="container-fluid">
+					<h4 class="page-title">Главная</h4>
+					<h6 class="page-title">Состояние пациента:</h6>
+					<div class="row">
+                        <?php
+                        require "../connect.php";
+                        
+                        $id = $_SESSION['patient']['id'];
+
+                        $select = "SELECT `patientStatus` FROM `patients` WHERE `id`= '$id'";
+                        $result = mysqli_query($connect, $select);
+                        $array = mysqli_fetch_array($result);
+                        $status = $array[0];
+
+                        if($status=="Good"){
+                            $class = "card-success";
+                        }
+                        if($status=="Normal"){
+                            $class = "card-warning";
+                        }
+                        if($status=="Bad"){
+                            $class = "card-danger";
+                        }
+                        ?>
+						<div class="col-md-3">
+							<div class="card card-stats <?php echo $class;?>">
+								<div class="card-body ">
+									<div class="row">
+										<div class="col-5">
+											<div class="icon-big text-center">
+												<i class="la la-user"></i>
+											</div>
+										</div>
+										<div class="col-7 d-flex align-items-center">
+											<div class="numbers">
+												<p class="card-category">Моё состояние:</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
 </body>
+<script src="../doctor_scripts/assets/js/core/jquery.3.2.1.min.js"></script>
+<script src="../doctor_scripts/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="../doctor_scripts/assets/js/core/popper.min.js"></script>
+<script src="../doctor_scripts/assets/js/core/bootstrap.min.js"></script>
+<script src="../doctor_scripts/assets/js/plugin/chartist/chartist.min.js"></script>
+<script src="../doctor_scripts/assets/js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js"></script>
+<!-- <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script> -->
+<script src="../doctor_scripts/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+<script src="../doctor_scripts/assets/js/plugin/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="../doctor_scripts/assets/js/plugin/jquery-mapael/maps/world_countries.min.js"></script>
+<script src="../doctor_scripts/assets/js/plugin/chart-circle/circles.min.js"></script>
+<script src="../doctor_scripts/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<script src="../doctor_scripts/assets/js/ready.min.js"></script>
+<script src="../doctor_scripts/assets/js/demo.js"></script>
 
 </html>

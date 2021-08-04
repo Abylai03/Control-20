@@ -118,6 +118,12 @@ if (!$_SESSION['doctor']) {
 						</a>
 					</li>
 					<li class="nav-item">
+						<a href="changePassword.php">
+							<i class="la la-key"></i>
+							<p>Сменить пароль</p>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a href="doctorLogout.php">
 							<i class="la la-sign-out"></i>
 							<p>Выход</p>
@@ -173,7 +179,7 @@ if (!$_SESSION['doctor']) {
 										</div>
 										<div class="col-7 d-flex align-items-center" style="padding-left: 0;">
 											<div class="numbers">
-												<p class="card-category" style = "display: inline-block !important;">"Хорошее"</p>
+												<p class="card-category" style="display: inline-block !important;">"Хорошее"</p>
 												<h4 class="card-title">
 													<?php
 													require "../connect.php";
