@@ -308,10 +308,10 @@ if (!$_SESSION['patient']) {
     </div>
     </div>
 </body>
-<script src="assets/js/core/bootstrap.min.js"></script>
-<script src="assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-<script src="assets/js/plugin/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-<script src="assets/js/ready.min.js"></script>
+<script src="../doctor_scripts/assets/js/core/bootstrap.min.js"></script>
+<script src="../doctor_scripts/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+<script src="../doctor_scripts/assets/js/plugin/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="../doctor_scripts/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<script src="../doctor_scripts/assets/js/ready.min.js"></script>
 
 </html>
