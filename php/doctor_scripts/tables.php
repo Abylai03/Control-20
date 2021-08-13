@@ -148,9 +148,21 @@ if (!$_SESSION['doctor']) {
 														</tr>
 												<?php
 													}
-												} /* else {
-													echo "База пуста";
-												} */
+												} else { ?>
+													<tr>
+															<td align="center"></td>
+															<td align="center"></td>
+															<td align="center"></td>
+															<td align="center"></td>
+															<td align="center"></td>
+															<td align="center"></td>
+															<td align="center"></td>
+															<td align="center"></td>
+															<td align="center"></td>
+															<td align="center"></td>
+														</tr>
+												<?php
+												}
 
 												?>
 												</tbody>
