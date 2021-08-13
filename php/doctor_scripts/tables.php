@@ -187,7 +187,7 @@ if (!$_SESSION['doctor']) {
 												</tbody>
 											</table>
 										</div>
-										<a style="display: flex; justify-content: center; margin: auto;" href="addPatient.php">
+										<a style="display: flex; justify-content: center; margin: auto; margin-bottom: 10px;" href="addPatient.php">
 											<button class="btn btn-primary" name="table">Добавить пациента в базу</button>
 										</a>
 								</div>
