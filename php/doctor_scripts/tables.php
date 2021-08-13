@@ -90,27 +90,27 @@ if (!$_SESSION['doctor']) {
 				</ul>
 			</div>
 		</div>
-		<?php
-		require "../connect.php";
+		<div class="main-panel">
+			<div class="content">
+				<div class="container-fluid">
+					<h4 class="page-title">Пациенты</h4>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">Список пациентов</div>
+								</div>
+								<div class="card-body">
+									<?php
+									require "../connect.php";
 
-		$doctorId = $_SESSION['doctor']['id'];
+									$doctorId = $_SESSION['doctor']['id'];
 
-		$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId'";
-		$query = mysqli_query($connect, $sql);
-		$count = mysqli_num_rows($query);
-		if ($count != 0) {
-		?>
-			<div class="main-panel">
-				<div class="content">
-					<div class="container-fluid">
-						<h4 class="page-title">Пациенты</h4>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="card">
-									<div class="card-header">
-										<div class="card-title">Список пациентов</div>
-									</div>
-									<div class="card-body">
+									$sql = "SELECT * FROM `patients` WHERE `doctorId`='$doctorId'";
+									$query = mysqli_query($connect, $sql);
+									$count = mysqli_num_rows($query);
+									if ($count != 0) {
+									?>
 										<div class="table-responsive">
 											<table class="table table-bordered">
 												<thead>
@@ -146,21 +146,21 @@ if (!$_SESSION['doctor']) {
 																</a>
 															</td>
 														</tr>
-												<?php
+													<?php
 													}
 												} else { ?>
 													<tr>
-															<td align="center"></td>
-															<td align="center"></td>
-															<td align="center"></td>
-															<td align="center"></td>
-															<td align="center"></td>
-															<td align="center"></td>
-															<td align="center"></td>
-															<td align="center"></td>
-															<td align="center"></td>
-															<td align="center"></td>
-														</tr>
+														<td align="center"></td>
+														<td align="center"></td>
+														<td align="center"></td>
+														<td align="center"></td>
+														<td align="center"></td>
+														<td align="center"></td>
+														<td align="center"></td>
+														<td align="center"></td>
+														<td align="center"></td>
+														<td align="center"></td>
+													</tr>
 												<?php
 												}
 
@@ -171,44 +171,44 @@ if (!$_SESSION['doctor']) {
 										<a style="display: flex; justify-content: center; margin: auto;" href="addPatient.php">
 											<button class="btn btn-primary" name="table">Добавить пациента в базу</button>
 										</a>
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Вы уверены, что хотите удалить пациента из базы?</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<!-- 
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Вы уверены, что хотите удалить пациента из базы?</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<!-- 
 																	<div class="modal-body">
 																		...
 																	</div> -->
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
-							<a id="del" href=""><button type="button" class="btn btn-primary">Да</button></a>
-						</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
+						<a id="del" href=""><button type="button" class="btn btn-primary">Да</button></a>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<script type="text/javascript">
-				function newVal(t) {
-					var res = $(t).attr('value');
-					console.log(res);
-					document.getElementById("del").href = res;
-					return false;
-				}
-			</script>
+		<script type="text/javascript">
+			function newVal(t) {
+				var res = $(t).attr('value');
+				console.log(res);
+				document.getElementById("del").href = res;
+				return false;
+			}
+		</script>
 	</div>
 	</div>
 </body>
