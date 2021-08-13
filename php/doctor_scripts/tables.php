@@ -149,18 +149,37 @@ if (!$_SESSION['doctor']) {
 													<?php
 													}
 												} else { ?>
-													<tr>
-														<td align="center">-</td>
-														<td align="center">-</td>
-														<td align="center">-</td>
-														<td align="center">-</td>
-														<td align="center">-</td>
-														<td align="center">-</td>
-														<td align="center">-</td>
-														<td align="center">-</td>
-														<td align="center">-</td>
-														<td align="center">-</td>
-													</tr>
+													<div class="table-responsive">
+														<table class="table table-bordered">
+															<thead>
+																<tr>
+																	<th align="center">ID</th>
+																	<th align="center">Имя</th>
+																	<th align="center">Фамилия</th>
+																	<th align="center">Email</th>
+																	<th align="center">Номер телефона</th>
+																	<th align="center">Адрес</th>
+																	<th align="center">Статус</th>
+																	<th align="center">Api Key</th>
+																	<th align="center" colspan="2">Действия</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td align="center">-</td>
+																	<td align="center">-</td>
+																	<td align="center">-</td>
+																	<td align="center">-</td>
+																	<td align="center">-</td>
+																	<td align="center">-</td>
+																	<td align="center">-</td>
+																	<td align="center">-</td>
+																	<td align="center">-</td>
+																	<td align="center">-</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
 												<?php
 												}
 
@@ -190,9 +209,9 @@ if (!$_SESSION['doctor']) {
 						</button>
 					</div>
 					<!-- 
-																	<div class="modal-body">
-																		...
-																	</div> -->
+					<div class="modal-body">
+						...
+					</div> -->
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
 						<a id="del" href=""><button type="button" class="btn btn-primary">Да</button></a>
