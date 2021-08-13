@@ -150,16 +150,16 @@ if (!$_SESSION['doctor']) {
 													}
 												} else { ?>
 													<tr>
-														<td align="center"></td>
-														<td align="center"></td>
-														<td align="center"></td>
-														<td align="center"></td>
-														<td align="center"></td>
-														<td align="center"></td>
-														<td align="center"></td>
-														<td align="center"></td>
-														<td align="center"></td>
-														<td align="center"></td>
+														<td align="center">-</td>
+														<td align="center">-</td>
+														<td align="center">-</td>
+														<td align="center">-</td>
+														<td align="center">-</td>
+														<td align="center">-</td>
+														<td align="center">-</td>
+														<td align="center">-</td>
+														<td align="center">-</td>
+														<td align="center">-</td>
 													</tr>
 												<?php
 												}
