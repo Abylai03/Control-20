@@ -201,8 +201,8 @@ if (isset($_POST['submit'])) {
     $status = $_POST['status'];
     $number = $_POST['number'];
 
-    $sql = "INSERT INTO `patients` (`id`, `patientName`, `patientSurname`, `patientEmail`, `patientPhoneNumber`, `patientAddress`, `patientStatus`, `apiKey`, `doctorId`) 
-    VALUES (NULL, '$name', '$surname ', '$email', '$phone', '$address', '$status', '$number', '$doc')";
+    $sql = "INSERT INTO `patients` (`id`, `patientName`, `patientSurname`, `patientEmail`, `patientPassword`,`patientPhoneNumber`, `patientAddress`, `patientStatus`, `apiKey`, `doctorId`) 
+    VALUES (NULL, '$name', '$surname ', '$email', '123456','$phone', '$address', '$status', '$number', '$doc')";
     $query = mysqli_query($connect, $sql);
 
     if ($query) {
