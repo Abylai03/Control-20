@@ -147,11 +147,11 @@ if (!$_SESSION['doctor']) {
 															</td>
 														</tr>
 												<?php
-													}/* 
-												} else {
+													}
+												} /* else {
 													echo "База пуста";
-												}
- */
+												} */
+
 												?>
 												</tbody>
 											</table>
