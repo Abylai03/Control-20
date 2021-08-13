@@ -156,11 +156,11 @@ if (!$_SESSION['doctor']) {
 												</tbody>
 											</table>
 										</div>
+										<a style="display: flex; justify-content: center; margin: auto;" href="addPatient.php">
+											<button class="btn btn-primary" name="table">Добавить пациента в базу</button>
+										</a>
 									</div>
 								</div>
-								<a style="display: flex; justify-content: center; margin: auto;" href="addPatient.php">
-									<button class="btn btn-primary" name="table">Добавить пациента в базу</button>
-								</a>
 							</div>
 						</div>
 					</div>
